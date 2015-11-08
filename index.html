@@ -129,6 +129,19 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">itemsData.items.map((item,i) =&gt; &#123;</span><br><span class="line">  var itemInfo = <span class="built_in">eval</span>(itemsData.items[i].itemInfoPage);</span><br><span class="line">  var itemDataLoader = <span class="built_in">eval</span>(itemsData.items[i].itemDataLoader);</span><br><span class="line">  listObj[i] = React.createClass(&#123;</span><br><span class="line">    render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">      <span class="built_in">return</span> (</span><br><span class="line">        &lt;List</span><br><span class="line">           data=&#123;itemDataLoader.items&#125;</span><br><span class="line">           info=&#123;itemInfo&#125;</span><br><span class="line">           navigator=&#123;this.props.navigator&#125;/&gt;</span><br><span class="line">      );</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 <p>可以实现。</p>
 </blockquote>
+<h1 id="全局StyleSheet（global_style），简化且统一。">全局StyleSheet（global style），简化且统一。</h1><p>除了inline styles，可采用全局style，简化样式。</p>
+<blockquote>
+<p><strong>解决:</strong></p>
+<ul>
+<li><p>通过维护一个全局style.js文件：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'use strict'</span>;</span><br><span class="line">var React = require(<span class="string">'react-native'</span>);</span><br><span class="line">var &#123;</span><br><span class="line">  StyleSheet,</span><br><span class="line">&#125; = React;</span><br><span class="line">module.exports = StyleSheet.create(&#123;</span><br><span class="line">	alwaysred: &#123;</span><br><span class="line">	    backgroundColor: <span class="string">'red'</span>,</span><br><span class="line">	    height: <span class="number">100</span>,</span><br><span class="line">	    width: <span class="number">100</span>,</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在component中使用：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var s = require(<span class="string">'./style'</span>);</span><br><span class="line">&lt;View style=&#123;s.alwaysred&#125; &gt;</span><br><span class="line">&lt;/View&gt;</span><br></pre></td></tr></table></figure>
+<p>即可。</p>
+</li>
+</ul>
+</blockquote>
 
         
         

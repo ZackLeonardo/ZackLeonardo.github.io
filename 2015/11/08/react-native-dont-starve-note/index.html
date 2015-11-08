@@ -27,7 +27,7 @@ Navigator等对布局的影响在使用Navigator时，发现component会从屏�
 解决:
 
 设置component组件的属性：aut">
-<meta property="og:updated_time" content="2015-11-08T07:30:31.000Z">
+<meta property="og:updated_time" content="2015-11-08T12:13:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React native 开发笔记－－don't Starve">
 <meta name="twitter:description" content="React native 开发笔记－－don’t Starve这篇笔记记录 Zack Leonardo 在学习react native，并开发don’t  Starve小程序中遇到的问题以及解决方法和思考。
@@ -111,7 +111,7 @@ Navigator等对布局的影响在使用Navigator时，发现component会从屏�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_native_开发笔记－－don’t_Starve"><span class="toc-number">1.</span> <span class="toc-text">React native 开发笔记－－don’t Starve</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Navigator等对布局的影响"><span class="toc-number">2.</span> <span class="toc-text">Navigator等对布局的影响</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#eval—将string转function，可达到动态加载模块或数据的目的"><span class="toc-number">3.</span> <span class="toc-text">eval—将string转function，可达到动态加载模块或数据的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#循环语句中嵌入了render类"><span class="toc-number">4.</span> <span class="toc-text">循环语句中嵌入了render类</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_native_开发笔记－－don’t_Starve"><span class="toc-number">1.</span> <span class="toc-text">React native 开发笔记－－don’t Starve</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Navigator等对布局的影响"><span class="toc-number">2.</span> <span class="toc-text">Navigator等对布局的影响</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#eval—将string转function，可达到动态加载模块或数据的目的"><span class="toc-number">3.</span> <span class="toc-text">eval—将string转function，可达到动态加载模块或数据的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#循环语句中嵌入了render类"><span class="toc-number">4.</span> <span class="toc-text">循环语句中嵌入了render类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#全局StyleSheet（global_style），简化且统一。"><span class="toc-number">5.</span> <span class="toc-text">全局StyleSheet（global style），简化且统一。</span></a></li></ol>
 		
 		</div>
 		
@@ -149,6 +149,19 @@ Navigator等对布局的影响在使用Navigator时，发现component会从屏�
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">itemsData.items.map((item,i) =&gt; &#123;</span><br><span class="line">  var itemInfo = <span class="built_in">eval</span>(itemsData.items[i].itemInfoPage);</span><br><span class="line">  var itemDataLoader = <span class="built_in">eval</span>(itemsData.items[i].itemDataLoader);</span><br><span class="line">  listObj[i] = React.createClass(&#123;</span><br><span class="line">    render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">      <span class="built_in">return</span> (</span><br><span class="line">        &lt;List</span><br><span class="line">           data=&#123;itemDataLoader.items&#125;</span><br><span class="line">           info=&#123;itemInfo&#125;</span><br><span class="line">           navigator=&#123;this.props.navigator&#125;/&gt;</span><br><span class="line">      );</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 <p>可以实现。</p>
+</blockquote>
+<h1 id="全局StyleSheet（global_style），简化且统一。">全局StyleSheet（global style），简化且统一。</h1><p>除了inline styles，可采用全局style，简化样式。</p>
+<blockquote>
+<p><strong>解决:</strong></p>
+<ul>
+<li><p>通过维护一个全局style.js文件：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'use strict'</span>;</span><br><span class="line">var React = require(<span class="string">'react-native'</span>);</span><br><span class="line">var &#123;</span><br><span class="line">  StyleSheet,</span><br><span class="line">&#125; = React;</span><br><span class="line">module.exports = StyleSheet.create(&#123;</span><br><span class="line">	alwaysred: &#123;</span><br><span class="line">	    backgroundColor: <span class="string">'red'</span>,</span><br><span class="line">	    height: <span class="number">100</span>,</span><br><span class="line">	    width: <span class="number">100</span>,</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在component中使用：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var s = require(<span class="string">'./style'</span>);</span><br><span class="line">&lt;View style=&#123;s.alwaysred&#125; &gt;</span><br><span class="line">&lt;/View&gt;</span><br></pre></td></tr></table></figure>
+<p>即可。</p>
+</li>
+</ul>
 </blockquote>
   
 	</div>
@@ -208,7 +221,7 @@ Navigator等对布局的影响在使用Navigator时，发现component会从屏�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_native_开发笔记－－don’t_Starve"><span class="toc-number">1.</span> <span class="toc-text">React native 开发笔记－－don’t Starve</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Navigator等对布局的影响"><span class="toc-number">2.</span> <span class="toc-text">Navigator等对布局的影响</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#eval—将string转function，可达到动态加载模块或数据的目的"><span class="toc-number">3.</span> <span class="toc-text">eval—将string转function，可达到动态加载模块或数据的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#循环语句中嵌入了render类"><span class="toc-number">4.</span> <span class="toc-text">循环语句中嵌入了render类</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_native_开发笔记－－don’t_Starve"><span class="toc-number">1.</span> <span class="toc-text">React native 开发笔记－－don’t Starve</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Navigator等对布局的影响"><span class="toc-number">2.</span> <span class="toc-text">Navigator等对布局的影响</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#eval—将string转function，可达到动态加载模块或数据的目的"><span class="toc-number">3.</span> <span class="toc-text">eval—将string转function，可达到动态加载模块或数据的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#循环语句中嵌入了render类"><span class="toc-number">4.</span> <span class="toc-text">循环语句中嵌入了render类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#全局StyleSheet（global_style），简化且统一。"><span class="toc-number">5.</span> <span class="toc-text">全局StyleSheet（global style），简化且统一。</span></a></li></ol>
  
   </div>
 
