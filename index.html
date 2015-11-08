@@ -81,6 +81,86 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/11/08/publishModuleToNpm/" title="发布Node.js模块到NPM社区" itemprop="url">发布Node.js模块到NPM社区</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Zack Leonardo" target="_blank" itemprop="author">Zack Leonardo</a>
+		
+  <p class="article-time">
+    <time datetime="2015-11-08T04:45:53.000Z" itemprop="datePublished"> 发表于 2015-11-08</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="首先，需要一个github帐号托管项目；">首先，需要一个github帐号托管项目；</h1><blockquote>
+<p>默认你已会使用github</p>
+<h2 id="创建repository;">创建repository;</h2><p>接下来我们需要创建module所需的repository，这个repository用来托管我们module的代码，并方便用户报告bug，最重要的是可以让其他开发者向module贡献代码。</p>
+</blockquote>
+<h1 id="进入主题：发布node到npm社区；">进入主题：发布node到npm社区；</h1><blockquote>
+<h2 id="初始化package-json;">初始化package.json;</h2><p>进入项目目录，以test为例：<br><strong>$ cd test</strong><br>创建package.json文件，这个文件包含了module的所有信息，比如名称、版本、描述、依赖、作者、license等:<br><strong>$ npm init</strong><br>系统会提示你输入所需的信息，不想输入的直接输入Enter可以跳过。<br>输入完成之后，系统会要你确认文件的内容是否有误，如果没有问题回车，package.json就创建好了。</p>
+<h2 id="加入对其他module的依赖关系">加入对其他module的依赖关系</h2><p>npm init创建的package.json文件只包含了基本的信息，还需要加入对其他module的依赖关系：<br><strong>“dependencies”: {<br>    “mongodb” : “1.3.19”,<br>}</strong></p>
+<h2 id="整体的文件夹结构如下;">整体的文件夹结构如下;</h2><p>test<br> ├─┬ lib<br> │ └── easy_mongo.js<br> ├─┬ test<br> │ └── all.js<br> ├── .gitignore<br> ├── .npmignore<br> ├── .travis.yml<br> ├── index.js<br> ├── LICENSE<br> ├── makefile<br> ├── package.json<br> ├── README.md<br>各文件作用如下：<br>lib目录下存放业务逻辑文件<br>test目录下存放单元测试用例<br>.npmignore记录哪些文件不需要被发布到npmjs.org<br>.travis.yml是持续集成服务travis的描述文件<br>index.js是入口文件<br>makefile方便我们用make test进行测试<br>README.md是此module的描述和使用方法</p>
+<p>根据需求进行添加和编辑。</p>
+<h2 id="配置用户信息;">配置用户信息;</h2><p>完成了上面的步骤之后，在www.npmjs.org注册一个账号，这个账号会被添加到npm本地的配置中，用来发布module用。<br><strong>$ npm adduser<br>Username: your name<br>Password: your password<br>Email: yourmail</strong><br>如果出现以下错误，可能是npm版本太低，通过sudo npm install -g npm升级一下。</p>
+<p>npm WARN adduser Incorrect username or password<br>npm WARN adduser You can reset your account by visiting:<br>npm WARN adduser<br>npm WARN adduser     <a href="http://admin.npmjs.org/reset" target="_blank" rel="external">http://admin.npmjs.org/reset</a><br>npm WARN adduser<br>npm ERR! Error: forbidden may not mix password_sha and pbkdf2<br>npm ERR! You may need to upgrade your version of npm:<br>npm ERR!   npm install npm -g<br>npm ERR! Note that this may need to be run as root/admin (sudo, etc.)<br>成功之后，npm会把认证信息存储在~/.npmrc中，并且可以通过以下命令查看npm当前使用的用户：</p>
+<p><strong>$ npm whoami</strong><br>以上完成之后，我们终于可以发布自己的module了：</p>
+<h2 id="发布module;">发布module;</h2><p><strong>$ npm publish</strong></p>
+<p>如果使用 cnpm 的注意报错：</p>
+<p>no_perms Private mode enable, only admin can publish this module<br>设置回原本的就可以了：</p>
+<p><strong>npm config set registry <a href="http://registry.npmjs.org" target="_blank" rel="external">http://registry.npmjs.org</a></strong><br><strong>npm包package.json中registory属性一定要填写，每次publish npm时package.json中version版本一定要大于上一次。</strong></p>
+</blockquote>
+<p>done!</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Blog/">Blog</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/NPM/">NPM</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/11/08/publishModuleToNpm/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/11/08/publishModuleToNpm/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/11/08/hello-world/" title="Hello World" itemprop="url">Hello World</a>
   </h1>
   <p class="article-author">By
@@ -155,8 +235,30 @@
 
 
   
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Blog/" title="Blog">Blog<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
 
   
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/NPM/" title="NPM">NPM<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
 
   <div class="linkslist">
   <p class="asidetitle">友情链接</p>
