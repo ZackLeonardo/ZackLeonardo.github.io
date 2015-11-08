@@ -4,22 +4,38 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>MaiZ的博客</title>
+    <title>React native 开发笔记－－don&#39;t Starve | MaiZ的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zack Leonardo">
     
 
-    
-    <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MaiZ的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="keywords" content="Node, react-native">
+    <meta name="description" content="React native 开发笔记－－don’t Starve这篇笔记记录 Zack Leonardo 在学习react native，并开发don’t  Starve小程序中遇到的问题以及解决方法和思考。
+Navigator等对布局的影响在使用Navigator时，发现component会从屏幕顶端开始布局，将被navigator遮挡一部分。
+
+解决:
+
+设置component组件的属性：aut">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React native 开发笔记－－don't Starve">
+<meta property="og:url" content="http://yoursite.com/2015/11/08/react-native-dont-starve-note/index.html">
 <meta property="og:site_name" content="MaiZ的博客">
-<meta property="og:description">
+<meta property="og:description" content="React native 开发笔记－－don’t Starve这篇笔记记录 Zack Leonardo 在学习react native，并开发don’t  Starve小程序中遇到的问题以及解决方法和思考。
+Navigator等对布局的影响在使用Navigator时，发现component会从屏幕顶端开始布局，将被navigator遮挡一部分。
+
+解决:
+
+设置component组件的属性：aut">
+<meta property="og:updated_time" content="2015-11-08T07:30:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MaiZ的博客">
-<meta name="twitter:description">
+<meta name="twitter:title" content="React native 开发笔记－－don't Starve">
+<meta name="twitter:description" content="React native 开发笔记－－don’t Starve这篇笔记记录 Zack Leonardo 在学习react native，并开发don’t  Starve小程序中遇到的问题以及解决方法和思考。
+Navigator等对布局的影响在使用Navigator时，发现component会从屏幕顶端开始布局，将被navigator遮挡一部分。
+
+解决:
+
+设置component组件的属性：aut">
 
     
     <link rel="alternative" href="/atom.xml" title="MaiZ的博客" type="application/atom+xml">
@@ -73,12 +89,10 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
   <h1 itemprop="name">
     
       <a href="/2015/11/08/react-native-dont-starve-note/" title="React native 开发笔记－－don&#39;t Starve" itemprop="url">React native 开发笔记－－don&#39;t Starve</a>
@@ -92,9 +106,16 @@
     
   </p>
 </header>
-    <div class="article-content">
-        
-        <h1 id="React_native_开发笔记－－don’t_Starve">React native 开发笔记－－don’t Starve</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习react native，并开发don’t  Starve小程序中遇到的问题以及解决方法和思考。</p>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_native_开发笔记－－don’t_Starve"><span class="toc-number">1.</span> <span class="toc-text">React native 开发笔记－－don’t Starve</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Navigator等对布局的影响"><span class="toc-number">2.</span> <span class="toc-text">Navigator等对布局的影响</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#eval—将string转function，可达到动态加载模块或数据的目的"><span class="toc-number">3.</span> <span class="toc-text">eval—将string转function，可达到动态加载模块或数据的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#循环语句中嵌入了render类"><span class="toc-number">4.</span> <span class="toc-text">循环语句中嵌入了render类</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="React_native_开发笔记－－don’t_Starve">React native 开发笔记－－don’t Starve</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习react native，并开发don’t  Starve小程序中遇到的问题以及解决方法和思考。</p>
 <h1 id="Navigator等对布局的影响">Navigator等对布局的影响</h1><p>在使用Navigator时，发现component会从屏幕顶端开始布局，将被navigator遮挡一部分。</p>
 <blockquote>
 <p><strong>解决:</strong></p>
@@ -129,14 +150,9 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">itemsData.items.map((item,i) =&gt; &#123;</span><br><span class="line">  var itemInfo = <span class="built_in">eval</span>(itemsData.items[i].itemInfoPage);</span><br><span class="line">  var itemDataLoader = <span class="built_in">eval</span>(itemsData.items[i].itemDataLoader);</span><br><span class="line">  listObj[i] = React.createClass(&#123;</span><br><span class="line">    render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">      <span class="built_in">return</span> (</span><br><span class="line">        &lt;List</span><br><span class="line">           data=&#123;itemDataLoader.items&#125;</span><br><span class="line">           info=&#123;itemInfo&#125;</span><br><span class="line">           navigator=&#123;this.props.navigator&#125;/&gt;</span><br><span class="line">      );</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 <p>可以实现。</p>
 </blockquote>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
+  
+	</div>
+		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
@@ -154,179 +170,47 @@
 
 
 
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/11/08/react-native-dont-starve-note/" data-title="React native 开发笔记－－don&#39;t Starve | MaiZ的博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
 
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/11/08/react-native-dont-starve-note/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/11/08/react-native-dont-starve-note/" data-count-type="comments">&nbsp;</a>
-	
-</div>
 
 </footer>
 
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/11/08/publishModuleToNpm/" title="发布Node.js模块到NPM社区" itemprop="url">发布Node.js模块到NPM社区</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Zack Leonardo" target="_blank" itemprop="author">Zack Leonardo</a>
-		
-  <p class="article-time">
-    <time datetime="2015-11-08T04:45:53.000Z" itemprop="datePublished"> 发表于 2015-11-08</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>参照：<a href="https://github.com/ZackLeonardo/react-native-sudokuGrid" target="_blank" rel="external">https://github.com/ZackLeonardo/react-native-sudokuGrid</a></p>
-<h1 id="首先，需要一个github帐号托管项目；">首先，需要一个github帐号托管项目；</h1><blockquote>
-<p>默认你已会使用github</p>
-<h2 id="创建repository;">创建repository;</h2><p>接下来我们需要创建module所需的repository，这个repository用来托管我们module的代码，并方便用户报告bug，最重要的是可以让其他开发者向module贡献代码。</p>
-</blockquote>
-<h1 id="进入主题：发布node到npm社区；">进入主题：发布node到npm社区；</h1><blockquote>
-<h2 id="初始化package-json;">初始化package.json;</h2><p>进入项目目录，以test为例：<br><strong>$ cd test</strong><br>创建package.json文件，这个文件包含了module的所有信息，比如名称、版本、描述、依赖、作者、license等:<br><strong>$ npm init</strong><br>系统会提示你输入所需的信息，不想输入的直接输入Enter可以跳过。<br>输入完成之后，系统会要你确认文件的内容是否有误，如果没有问题回车，package.json就创建好了。</p>
-<h2 id="加入对其他module的依赖关系">加入对其他module的依赖关系</h2><p>npm init创建的package.json文件只包含了基本的信息，还需要加入对其他module的依赖关系：<br><strong>“dependencies”: {<br>    “mongodb” : “1.3.19”,<br>}</strong></p>
-<h2 id="整体的文件夹结构如下;">整体的文件夹结构如下;</h2><p>test<br> ├─┬ lib<br> │ └── easy_mongo.js<br> ├─┬ test<br> │ └── all.js<br> ├── .gitignore<br> ├── .npmignore<br> ├── .travis.yml<br> ├── index.js<br> ├── LICENSE<br> ├── makefile<br> ├── package.json<br> ├── README.md<br>各文件作用如下：<br>lib目录下存放业务逻辑文件<br>test目录下存放单元测试用例<br>.npmignore记录哪些文件不需要被发布到npmjs.org<br>.travis.yml是持续集成服务travis的描述文件<br>index.js是入口文件<br>makefile方便我们用make test进行测试<br>README.md是此module的描述和使用方法</p>
-<p>根据需求进行添加和编辑。</p>
-<h2 id="配置用户信息;">配置用户信息;</h2><p>完成了上面的步骤之后，在www.npmjs.org注册一个账号，这个账号会被添加到npm本地的配置中，用来发布module用。<br><strong>$ npm adduser<br>Username: your name<br>Password: your password<br>Email: yourmail</strong><br>如果出现以下错误，可能是npm版本太低，通过sudo npm install -g npm升级一下。</p>
-<p>npm WARN adduser Incorrect username or password<br>npm WARN adduser You can reset your account by visiting:<br>npm WARN adduser<br>npm WARN adduser     <a href="http://admin.npmjs.org/reset" target="_blank" rel="external">http://admin.npmjs.org/reset</a><br>npm WARN adduser<br>npm ERR! Error: forbidden may not mix password_sha and pbkdf2<br>npm ERR! You may need to upgrade your version of npm:<br>npm ERR!   npm install npm -g<br>npm ERR! Note that this may need to be run as root/admin (sudo, etc.)<br>成功之后，npm会把认证信息存储在~/.npmrc中，并且可以通过以下命令查看npm当前使用的用户：</p>
-<p><strong>$ npm whoami</strong><br>以上完成之后，我们终于可以发布自己的module了：</p>
-<h2 id="发布module;">发布module;</h2><p><strong>$ npm publish</strong></p>
-<p>如果使用 cnpm 的注意报错：</p>
-<p>no_perms Private mode enable, only admin can publish this module<br>设置回原本的就可以了：</p>
-<p><strong>npm config set registry <a href="http://registry.npmjs.org" target="_blank" rel="external">http://registry.npmjs.org</a></strong><br><strong>npm包package.json中registory属性一定要填写，每次publish npm时package.json中version版本一定要大于上一次。</strong></p>
-</blockquote>
-<p>done!</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Blog/">Blog</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/npm/">npm</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
+   	       
+	</article>
 	
-	  	<span></span>
-		<a href="/2015/11/08/publishModuleToNpm/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/11/08/publishModuleToNpm/" data-count-type="comments">&nbsp;</a>
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/11/08/publishModuleToNpm/"  title="发布Node.js模块到NPM社区">
+ <strong>下一篇：</strong><br/> 
+ <span>发布Node.js模块到NPM社区
+</span>
+</a>
+</div>
+
+</nav>
+
 	
-</div>
-
-</footer>
-
-
-    </article>
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/11/08/react-native-dont-starve-note/" data-title="React native 开发笔记－－don't Starve" data-url="http://yoursite.com/2015/11/08/react-native-dont-starve-note/"></div>
+</section>
 
 
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/11/07/hello-world/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Zack Leonardo" target="_blank" itemprop="author">Zack Leonardo</a>
-		
-  <p class="article-time">
-    <time datetime="2015-11-07T04:45:53.000Z" itemprop="datePublished"> 发表于 2015-11-07</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Blog/">Blog</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/hexo/">hexo</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/11/07/hello-world/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/11/07/hello-world/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-</div>
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_native_开发笔记－－don’t_Starve"><span class="toc-number">1.</span> <span class="toc-text">React native 开发笔记－－don’t Starve</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Navigator等对布局的影响"><span class="toc-number">2.</span> <span class="toc-text">Navigator等对布局的影响</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#eval—将string转function，可达到动态加载模块或数据的目的"><span class="toc-number">3.</span> <span class="toc-text">eval—将string转function，可达到动态加载模块或数据的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#循环语句中嵌入了render类"><span class="toc-number">4.</span> <span class="toc-text">循环语句中嵌入了render类</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -490,12 +374,89 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -604,4 +565,4 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
