@@ -1,0 +1,591 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>React介绍以及他是如何适应一切的（译） | MaiZ的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Zack Leonardo">
+    
+
+    <meta name="keywords" content="react, react.js">
+    <meta name="description" content="先将原文转载于此，有时间翻译一下。
+Posted on July 23, 2014 by Craig McKeachie    in React.js, Single-page ApplicationsReact.js and How Does It Fit In With Everything Else?
+Introduction
+A few weeks ago I launched my bo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React介绍以及他是如何适应一切的（译）">
+<meta property="og:url" content="http://yoursite.com/2015/11/09/react-introduction/index.html">
+<meta property="og:site_name" content="MaiZ的博客">
+<meta property="og:description" content="先将原文转载于此，有时间翻译一下。
+Posted on July 23, 2014 by Craig McKeachie    in React.js, Single-page ApplicationsReact.js and How Does It Fit In With Everything Else?
+Introduction
+A few weeks ago I launched my bo">
+<meta property="og:updated_time" content="2015-11-09T12:45:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React介绍以及他是如何适应一切的（译）">
+<meta name="twitter:description" content="先将原文转载于此，有时间翻译一下。
+Posted on July 23, 2014 by Craig McKeachie    in React.js, Single-page ApplicationsReact.js and How Does It Fit In With Everything Else?
+Introduction
+A few weeks ago I launched my bo">
+
+    
+    <link rel="alternative" href="/atom.xml" title="MaiZ的博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="MaiZ的博客" title="MaiZ的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="MaiZ的博客">MaiZ的博客</a></h1>
+				<h2 class="blog-motto">Zack Leonardo</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">博客</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/11/09/react-introduction/" title="React介绍以及他是如何适应一切的（译）" itemprop="url">React介绍以及他是如何适应一切的（译）</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Zack Leonardo" target="_blank" itemprop="author">Zack Leonardo</a>
+		
+  <p class="article-time">
+    <time datetime="2015-11-09T12:43:09.000Z" itemprop="datePublished"> 发表于 2015-11-09</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">Comments</span></a></li></ol>
+		
+		</div>
+		
+		<p>先将原文转载于此，有时间翻译一下。</p>
+<p>Posted on July 23, 2014 by Craig McKeachie    in React.js, Single-page Applications<br>React.js and How Does It Fit In With Everything Else?</p>
+<p>Introduction</p>
+<p>A few weeks ago I launched my book the JavaScript Framework Guide which focuses on helping developers and designers confidently choose and quickly learn the JavaScript MVC Frameworks: AngularJS, Backbone, and Ember. As part of my launch, I did a live Hangout Q&amp;A on JavaScript MVC Frameworks and a talk at my local JavaScript user group. I always get a lot of questions about comparing and contrasting the frameworks which at this point I feel confident in answering, but by far the most popular question I got was “what about React?” I had listened to a couple different podcasts about it and done the hello world and was honestly still confused and not very excited about React, but what was I missing? To help me better understand React, I wrote down what was confusing me about React in a series of questions then wrote more code, researched and answered each in this post.</p>
+<p>react</p>
+<p>Is React a Template Library?</p>
+<p>The first thing you see when you come to the React site is the statement “Lots of people use React as the V in MVC.” Oh, so my initial thought was, “it’s a template library like handlebars.js (and its new variant htmlbars), mustache.js, dust.js, and the now deprecated jquery templates. I get it.” If you read on it says “Since React makes no assumptions about the rest of your technology stack, it’s easy to try it out on a small feature in an existing project.” My interpretation of this is they want you as a developer to try it out and don’t want to make it seem hard to get started. The phrase “lots of people” is important, because it hints that other people use it for more than the V in MVC. But is React a Template Library? No. In this Quora answer Pete Hunt, the public face and a contributor to React, clarified:</p>
+<p>To set the record straight: React components are far more powerful than Angular templates; they should be compared with Angular’s directives instead. [Directives are Angular’s way of creating custom elements].</p>
+<p>Is React Similar to Web Components?</p>
+<p>Is React simply an implementation of Web Components, the upcoming standard for custom HTML5 user interface elements? As mentioned before, Pete Hunt said React components should be compared to AngularJS directives. The Angular team has always clearly stated a goal of directives informing and eventually being compatible with HTML5 Web Components. So saying React is an implementation of Web Components is logical and correct, but doesn’t tell the whole story. Comparing React to Web Components is the same as comparing AngularJS Directives and Ember Components to Web Components. They are similar but not the same thing. React Components are not Web Components because React is abstracted away from browser while Web Components will be a native browser feature.</p>
+<p>There is a lot of stuff you get for free when you build like the browser doesn’t exists and this is one thing that distinguishes React from Web Components and Polymer and that kind of thing …they’re getting closer and closer in with the browser, and we’re getting farther and farther from the browser. And I think that our technique is more sustainable in the long term. — Pete Hunt on the Code Winds Podcast</p>
+<p> Are the Virtual DOM and Shadow DOM the Same?</p>
+<p>Another thing I was embarrassingly confused about was the question in my head about whether the shadow DOM feature of Web Components and the virtual DOM used by React are the same thing? The Shadow DOM feature of Web Components is not at all related to the the virtual DOM used by React.</p>
+<p>The virtual DOM used by React is simply an internal implementation detail of the framework which powers its amazing rendering performance.</p>
+<p>Virtual DOM</p>
+<p>React keeps two copies of a virtual DOM (the original and updated versions). These two virtual DOM trees are passed into a React function that diffs them and a stream of DOM operations are returned (generally these operations involve setting a property on an element).</p>
+<p>React.js Virtual DOM Infographic</p>
+<p>Share this Image On Your Site</p>
+<p>Shadow DOM</p>
+<p>The Shadow DOM feature of Web Components allows us to encapsulate DOM and CSS as a single element on the page. The canonical example of this is the video element in HTML which when looked at in the Chrome web browser with its Shadow DOM feature enabled shows the complex set of HTML elements that make up the implementation of the element, not just a <video> tag.</video></p>
+<p>video-element-w-shadow-dom</p>
+<p>Can React be used with other JavaScript MVC Frameworks?</p>
+<p>As mentioned earlier the React project’s home pages states “Lots of people use React as the V in MVC. Since React makes no assumptions about the rest of your technology stack, it’s easy to try it out on a small feature in an existing project.” So React can be used with other JavaScript MVC Frameworks by plugging it into a given framework’s web Component technology (Directives in AngularJS, Components in Ember, and smaller item views in Backbone).</p>
+<p>Here are some articles that do a good job demonstrating how to use React with those frameworks.</p>
+<p>AngularJS and React (using the ngReact directive)</p>
+<p>AngularJS and React (using ngReact and a custom directive)</p>
+<p>Backbone and React</p>
+<p>Ember and React<br>(this Ember forum post discusses bringing them together and from what I see it should be possible, but I haven’t seen an example online)</p>
+<p>Who Uses React.js?</p>
+<p>Instagram.com is 100% built on React, both public site and internal tools.<br>Facebook.com‘s commenting interface, business management tools, Lookback video editor, page insights, and most, if not all, new JS development.<br>Khan Academy uses React for most new JS development.<br>Sberbank, Russia’s number one bank, is built with React.<br>The New York Times’s 2014 Red Carpet Project is built with React.<br>Is React a Premature Optimization if you aren’t Facebook or Instagram?</p>
+<p>The React team talks in frames per second when describing their lightning fast rendering. Examples such as this one show lists of 1500 rows taking 1.35 seconds with AngularJS versus 310ms with ReactJs. This begs questions such as, should you ever render 1500 rows (can the user process this much on screen) and is trimming fractions of a second off of load times on reasonably designed pages a premature optimization in most applications?</p>
+<p>Here is another article with a similar performance improvement using React with AngularJS.</p>
+<p>Can I Work with Designers?</p>
+<p>One of the most difficult things to warm up to with React is that the markup is mixed in with the JavaScript. This can make it difficult for developers to work with designers who may be more comfortable in CSS and HTML files and shy away from code. The React team contends that most designers quickly adapt and components can be named to match layers in the PSD document so developers and designers are more easily able to collaborate.</p>
+<p>Will React Hurt my Search Engine Optimization (SEO)?</p>
+<p>React is significantly more SEO friendly than most JavaScript MVC frameworks because it is based on a virtual DOM you can use it on the server without needing a headless browser on the server such as Phantom.js to render pages to search engine bots.</p>
+<p>More specifically, React has the ability to render on the server side and transparently hook up its event handlers on the client, giving you the ability to handle both easily. If you call React.renderComponentToString on the server and then in the browser call React.renderComponent() on a node that already has this server-rendered markup, React will preserve it and only attach event handlers, allowing you to have a very performant first-load experience.</p>
+<p> Is React a Framework for Building Applications or a Library with One Feature?</p>
+<p>Is React a Framework? In other words can I use it by itself to build an application or is it a library, smaller in scope and focused on one feature. Again, this Quora answer from React contributor Pete Hunt does compare it to AngularJS but focuses the comparison on one feature of AngularJS, directives. This to me seems to be a fair comparison, React is a library with one great feature for building high performing web components today.</p>
+<p>React as an Alternative Architecture</p>
+<p>React does have an innovative architecture that can be used to build much more complex applications like the commenting system shown as the tutorial on the React site . The React core is a system for mapping a view hierarchy onto some sort of rendering back end and most often it targets the browser DOM. The React team has stated they are less concerned about the JavaScript reference implementation and instead focused on the architecture of React. In other words, they care about the alternative ideas they are putting out there for building client-side applications more than their specific implementation of them in React.js.</p>
+<p>The innovation React brings is in three main areas:</p>
+<p>1) An alternative to event and data binding framework architectures.</p>
+<p>The React alternative is programming like you are throwing away your entire component and re-rendering it every time because it is simpler and easier to reason about. Event-based and data binding approaches frequently run into timing problems keeping track of which callback gets called first as well as make it difficult to understand how a small change in state will affect performance.</p>
+<p>2) Virtual DOM</p>
+<p>As described earlier, React generates a virtual description of the DOM that we want and then diffs that description with a previous one and emits the changes. This can be done efficiently and programming becomes simpler. We don’t think about synchronizing pieces of data with bindings and don’t think about events firing. You just have a minimal set of state and paint the browser DOM with it. The performance improvements they have been able to achieve with this approach has definitely gotten other frameworks to take notice.</p>
+<p>3) Components</p>
+<p>If you break down your application into smaller components (main menu, footer, list, list item, datepicker, etc.) then it becomes easier to imagine building a complex application and it remaining maintainable. This is the promise of component-based architectures. Essentially it is jQuery plugins but standardized and better encapsulated so an Ember component, works with an Angular component, works with a React component and comes bundled with HTML, CSS, and JavaScript and none of it conflicts with other components on your page. This is the dream.</p>
+<p>React doesn’t quite deliver on the HTML, CSS, and JavaScript encapsulation story like Polymer, but React does have the huge advantage of not being a native browser feature. This abstraction allows it to be a technology that can be trusted today in the browser and on the server to have great performance and is not waiting for the browsers to catch up.</p>
+<p>Are components a better way to build an application?</p>
+<p>React Team members say that once you get beyond the simple hello world examples (where React is more code) React scales better with complexity. Components with encapsulated behavior is how they are able to keep the complexity lower by only looking at smaller pieces. One particularly impressive feature of react is how components can be composed and reused inside other components by simply using the markup for the custom component.</p>
+<p>For example, CommentList and CommentForm are re-used inside CommentBox by simply writing the custom element tags.</p>
+<p>var CommentBox = React.createClass({<br>  render: function() {<br>    return (<br>      <div classname="commentBox"><br>        <h1>Comments</h1><br>        <commentlist><br>           <commentform><br>      </commentform></commentlist></div><br>    );<br>  }<br>});</p>
+<p>Can I build something complex with React?</p>
+<p>From my research React seems to have real strengths in its support for rendering on the server and on the client (in browsers) with great performance and all this is available today. The simple programming model is refreshing, easy to learn, and reminiscent of Backbone. The concerns I have mostly center around can you build a complex line of business application with this technology? Are there enough features there to help you build a modern single-page application and have the developer be productive and the code be maintainable. Or is the React library an innovative idea for how frameworks might rethink their architectures but just one feature of a larger tool set that is needed— similar to how Knockout’s data binding evolved the landscape of JavaScript frameworks from Backbone’s simplicity to the productivity of  more recent frameworks like AngularJS and Ember.</p>
+<p>Let me know what you think about React.js in the comments below and take the time to time to sign up for my free mini-course on JavaScript frameworks and libraries below.</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/blog/">blog</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/react/">react</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/11/09/react-introduction/" data-title="React介绍以及他是如何适应一切的（译） | MaiZ的博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/11/08/react-native-dont-starve-note/"  title="React native 开发笔记－－don&#39;t Starve">
+ <strong>下一篇：</strong><br/> 
+ <span>React native 开发笔记－－don&#39;t Starve
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/11/09/react-introduction/" data-title="React介绍以及他是如何适应一切的（译）" data-url="http://yoursite.com/2015/11/09/react-introduction/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">Comments</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="ZackLeonardo" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Blog/" title="Blog">Blog<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/blog/" title="blog">blog<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/react-native/" title="react-native">react-native<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/react/" title="react">react<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/npm/" title="npm">npm<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://facebook.github.io/react-native/" target="_blank" title="react-native官网">react-native官网</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Zack Leonardo in ISCAS. <br/>
+			开始写博客，虽然忙，日积月累嘛.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/ZackLeonardo" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:maiz9088@icloud.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Zack Leonardo">Zack Leonardo</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"maiz"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe6d1f421bbc9962127a50488f9ed37d1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256729001'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1256729001' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
