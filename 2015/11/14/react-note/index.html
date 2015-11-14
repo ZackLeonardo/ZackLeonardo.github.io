@@ -25,7 +25,7 @@ devDependencies安装到 devDependencies 能让这个 package 能脱离 babel �
 
 解决:
 npm">
-<meta property="og:updated_time" content="2015-11-14T02:30:53.000Z">
+<meta property="og:updated_time" content="2015-11-14T13:29:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react-note react学习笔记">
 <meta name="twitter:description" content="React 学习笔记这篇笔记记录 Zack Leonardo 在学习react中的笔记记录。
@@ -108,7 +108,7 @@ npm">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">React 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#devDependencies"><span class="toc-number">2.</span> <span class="toc-text">devDependencies</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">React 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#devDependencies"><span class="toc-number">2.</span> <span class="toc-text">devDependencies</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jsx_and_babel"><span class="toc-number">3.</span> <span class="toc-text">jsx and babel</span></a></li></ol>
 		
 		</div>
 		
@@ -117,6 +117,27 @@ npm">
 <blockquote>
 <p><strong>解决:</strong></p>
 <p>npm install babel –save-dev</p>
+</blockquote>
+<h1 id="jsx_and_babel">jsx and babel</h1><p>什么是jsx？ jsx有何作用？</p>
+<blockquote>
+<p><strong>jsx是什么:</strong> JSX 是一种类 XML 语言,全称是 JavaScript XML 。<br><strong>jsx的作用：</strong> 在Javascript代码里直接写XML的语法，每一个XML标签都会被JSX转换工具(JSXTransformer)转换成纯Javascript代码，React 官方推荐使用JSX， 当然你想直接使用纯Javascript代码写也是可以的，只是使用JSX，更加方便。</p>
+<p><strong>but！</strong> React v0.14 (next release), the JSXTransformer.js won’t be part of the release. Also <code>react-tools</code> npm package is no more. So whatchagonnawannado is switch to <strong>Babel</strong> .</p>
+</blockquote>
+<p>什么是babel？</p>
+<blockquote>
+<p><strong>babel是什么:</strong> 通天塔，打通了许多“天”。他是js的编译器。<br><strong>babel的作用：</strong> babel作用太多：<a href="https://babeljs.io" target="_blank" rel="external">https://babeljs.io</a> 。简单说，他可以吧es5转译成es6，可以把jsx转译成纯js。</p>
+</blockquote>
+<p>在react中的babel：</p>
+<blockquote>
+<p>之前：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"react/build/react.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"react/build/JSXTransformer.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>现在：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"react/build/react.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"babel/browser.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>使用：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/babel"</span>&gt;</span><br><span class="line">React.render( <span class="xml"><span class="tag">&lt;<span class="title">h1</span>&gt;</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span>, document.getElementById('') );</span><br><span class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>这是在浏览器中，如果放到node里使用呢？</p>
+<blockquote>
+<p>可以直接在node中使用：<a href="https://babeljs.io/docs/setup/#node。" target="_blank" rel="external">https://babeljs.io/docs/setup/#node。</a><br>但是为了方便，也可以通过gulp等来使用：<a href="https://babeljs.io/docs/setup/#gulp。" target="_blank" rel="external">https://babeljs.io/docs/setup/#gulp。</a><br><strong>以gulp为例：</strong><br><strong>首先安装：</strong> 安装gulp和gulp-babel<br>npm install -g gulp<br>npm install –save-dev gulp-babel<br><strong>配置gulp：</strong><br>新建gulpfile.js：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">"gulp"</span>);</span><br><span class="line"><span class="keyword">var</span> babel = <span class="built_in">require</span>(<span class="string">"gulp-babel"</span>);</span><br><span class="line">gulp.task(<span class="string">"default"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">"App/components/test.js"</span>)</span><br><span class="line">    .pipe(babel())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">"dist"</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>还不能运行哟，还要配置babel：</strong><br>新建.babelrc：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  <span class="string">"plugins"</span>: [<span class="string">"transform-react-jsx"</span>],</span><br><span class="line">  <span class="string">"ignore"</span>: [</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>告诉babel要做什么事情，比如：transform-react-jsx。<br><strong>现在可以了：</strong><br>运行gulp： gulp<br>gulp -&gt; gulpfile.js -&gt; default任务 -&gt; ( babel -&gt; .babelrc -&gt; transform-react-jsx ) -&gt; dist下输出结果文件。<br><strong>done！可以使用结果文件了。</strong></p>
 </blockquote>
   
 	</div>
@@ -176,7 +197,7 @@ npm">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">React 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#devDependencies"><span class="toc-number">2.</span> <span class="toc-text">devDependencies</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">React 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#devDependencies"><span class="toc-number">2.</span> <span class="toc-text">devDependencies</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jsx_and_babel"><span class="toc-number">3.</span> <span class="toc-text">jsx and babel</span></a></li></ol>
  
   </div>
 
