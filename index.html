@@ -81,6 +81,73 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/11/16/css-note/" title="css-note css学习笔记" itemprop="url">css-note css学习笔记</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Zack Leonardo" target="_blank" itemprop="author">Zack Leonardo</a>
+		
+  <p class="article-time">
+    <time datetime="2015-11-16T10:45:33.000Z" itemprop="datePublished"> 发表于 2015-11-16</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="CSS_学习笔记">CSS 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习css中的笔记记录。</p>
+<h1 id="高度自增长">高度自增长</h1><p>设置最小高度，然后自增长。</p>
+<blockquote>
+<p><strong>解决:</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">min-height:<span class="number">100</span>px;    <span class="comment">/*高度最小值设置为：100px*/</span></span><br><span class="line">height:auto !important; <span class="comment">/*兼容FF,IE7也支持 !important标签*/</span></span><br><span class="line">height:<span class="number">100</span>px; <span class="comment">/*兼容ie6*/</span></span><br><span class="line">overflow:visible; <span class="comment">/*让IE能够当作height:auto来处理代码，不写也行*/</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Blog/">Blog</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/css/">css</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2015/11/16/css-note/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/11/16/css-note/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/11/14/react-note/" title="react-note react学习笔记" itemprop="url">react-note react学习笔记</a>
   </h1>
   <p class="article-author">By
@@ -323,6 +390,10 @@
 </li>
 </ul>
 </blockquote>
+<h1 id="node_require,_绝对路径／相当路径">node require, 绝对路径／相当路径</h1><blockquote>
+<p><strong>解决:</strong></p>
+<p>相对路径以 . 开始<br>绝对路径以 / 开始</p>
+</blockquote>
 <h1 id="循环语句中嵌入了render类">循环语句中嵌入了render类</h1><p>例如：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  var listObj = new Array();</span><br><span class="line">  <span class="keyword">for</span> (var i = <span class="number">0</span>; i &lt; ingredientsData.ingredients.length; i++) &#123;</span><br><span class="line">    var index = i;</span><br><span class="line">listObj[i] = React.createClass(&#123;</span><br><span class="line">      render: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        <span class="built_in">return</span> (</span><br><span class="line">          &lt;List</span><br><span class="line">            data=&#123;ingredientsData.ingredients[i].ingredient&#125;</span><br><span class="line">            info=&#123;ingredientInfo&#125;</span><br><span class="line">            navigator=&#123;this.props.navigator&#125;</span><br><span class="line">          /&gt;</span><br><span class="line">        );</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -507,7 +578,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/Blog/" title="Blog">Blog<sup>2</sup></a></li>
+			<li><a href="/categories/Blog/" title="Blog">Blog<sup>3</sup></a></li>
 		  
 		
 		  
@@ -532,7 +603,7 @@
 			
 		
 			
-				<li><a href="/tags/npm/" title="npm">npm<sup>1</sup></a></li>
+				<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
 			
 		
 			
@@ -543,6 +614,8 @@
 				<li><a href="/tags/react-native/" title="react-native">react-native<sup>1</sup></a></li>
 			
 		
+			
+				<li><a href="/tags/npm/" title="npm">npm<sup>1</sup></a></li>
 			
 		
 		</ul>

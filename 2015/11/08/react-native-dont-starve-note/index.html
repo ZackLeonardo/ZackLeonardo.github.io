@@ -27,7 +27,7 @@ Navigator等对布局的影响在使用Navigator时，发现component会从屏�
 解决:
 
 设置component组件的属性：aut">
-<meta property="og:updated_time" content="2015-11-14T02:21:54.000Z">
+<meta property="og:updated_time" content="2015-11-25T13:36:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React native 开发笔记－－don't Starve">
 <meta name="twitter:description" content="React native 开发笔记－－don’t Starve这篇笔记记录 Zack Leonardo 在学习react native，并开发don’t  Starve小程序中遇到的问题以及解决方法和思考。
@@ -111,7 +111,7 @@ Navigator等对布局的影响在使用Navigator时，发现component会从屏�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_native_开发笔记－－don’t_Starve"><span class="toc-number">1.</span> <span class="toc-text">React native 开发笔记－－don’t Starve</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Navigator等对布局的影响"><span class="toc-number">2.</span> <span class="toc-text">Navigator等对布局的影响</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#eval—将string转function，可达到动态加载模块或数据的目的"><span class="toc-number">3.</span> <span class="toc-text">eval—将string转function，可达到动态加载模块或数据的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#循环语句中嵌入了render类"><span class="toc-number">4.</span> <span class="toc-text">循环语句中嵌入了render类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#全局StyleSheet（global_style），简化且统一。"><span class="toc-number">5.</span> <span class="toc-text">全局StyleSheet（global style），简化且统一。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#propTypes属性校验"><span class="toc-number">6.</span> <span class="toc-text">propTypes属性校验</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_native_开发笔记－－don’t_Starve"><span class="toc-number">1.</span> <span class="toc-text">React native 开发笔记－－don’t Starve</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Navigator等对布局的影响"><span class="toc-number">2.</span> <span class="toc-text">Navigator等对布局的影响</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#eval—将string转function，可达到动态加载模块或数据的目的"><span class="toc-number">3.</span> <span class="toc-text">eval—将string转function，可达到动态加载模块或数据的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#node_require,_绝对路径／相当路径"><span class="toc-number">4.</span> <span class="toc-text">node require, 绝对路径／相当路径</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#循环语句中嵌入了render类"><span class="toc-number">5.</span> <span class="toc-text">循环语句中嵌入了render类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#全局StyleSheet（global_style），简化且统一。"><span class="toc-number">6.</span> <span class="toc-text">全局StyleSheet（global style），简化且统一。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#propTypes属性校验"><span class="toc-number">7.</span> <span class="toc-text">propTypes属性校验</span></a></li></ol>
 		
 		</div>
 		
@@ -136,6 +136,10 @@ Navigator等对布局的影响在使用Navigator时，发现component会从屏�
 <li><p>通过在程序中：<br>var itemInfo = eval(itemsData.items[i].itemInfoPage);<br>var itemDataLoader = eval(itemsData.items[i].itemDataLoader);<br>可达到动态加载的目的。</p>
 </li>
 </ul>
+</blockquote>
+<h1 id="node_require,_绝对路径／相当路径">node require, 绝对路径／相当路径</h1><blockquote>
+<p><strong>解决:</strong></p>
+<p>相对路径以 . 开始<br>绝对路径以 / 开始</p>
 </blockquote>
 <h1 id="循环语句中嵌入了render类">循环语句中嵌入了render类</h1><p>例如：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  var listObj = new Array();</span><br><span class="line">  <span class="keyword">for</span> (var i = <span class="number">0</span>; i &lt; ingredientsData.ingredients.length; i++) &#123;</span><br><span class="line">    var index = i;</span><br><span class="line">listObj[i] = React.createClass(&#123;</span><br><span class="line">      render: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        <span class="built_in">return</span> (</span><br><span class="line">          &lt;List</span><br><span class="line">            data=&#123;ingredientsData.ingredients[i].ingredient&#125;</span><br><span class="line">            info=&#123;ingredientInfo&#125;</span><br><span class="line">            navigator=&#123;this.props.navigator&#125;</span><br><span class="line">          /&gt;</span><br><span class="line">        );</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
@@ -239,7 +243,7 @@ Navigator等对布局的影响在使用Navigator时，发现component会从屏�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_native_开发笔记－－don’t_Starve"><span class="toc-number">1.</span> <span class="toc-text">React native 开发笔记－－don’t Starve</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Navigator等对布局的影响"><span class="toc-number">2.</span> <span class="toc-text">Navigator等对布局的影响</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#eval—将string转function，可达到动态加载模块或数据的目的"><span class="toc-number">3.</span> <span class="toc-text">eval—将string转function，可达到动态加载模块或数据的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#循环语句中嵌入了render类"><span class="toc-number">4.</span> <span class="toc-text">循环语句中嵌入了render类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#全局StyleSheet（global_style），简化且统一。"><span class="toc-number">5.</span> <span class="toc-text">全局StyleSheet（global style），简化且统一。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#propTypes属性校验"><span class="toc-number">6.</span> <span class="toc-text">propTypes属性校验</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_native_开发笔记－－don’t_Starve"><span class="toc-number">1.</span> <span class="toc-text">React native 开发笔记－－don’t Starve</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Navigator等对布局的影响"><span class="toc-number">2.</span> <span class="toc-text">Navigator等对布局的影响</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#eval—将string转function，可达到动态加载模块或数据的目的"><span class="toc-number">3.</span> <span class="toc-text">eval—将string转function，可达到动态加载模块或数据的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#node_require,_绝对路径／相当路径"><span class="toc-number">4.</span> <span class="toc-text">node require, 绝对路径／相当路径</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#循环语句中嵌入了render类"><span class="toc-number">5.</span> <span class="toc-text">循环语句中嵌入了render类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#全局StyleSheet（global_style），简化且统一。"><span class="toc-number">6.</span> <span class="toc-text">全局StyleSheet（global style），简化且统一。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#propTypes属性校验"><span class="toc-number">7.</span> <span class="toc-text">propTypes属性校验</span></a></li></ol>
  
   </div>
 
@@ -263,7 +267,7 @@ Navigator等对布局的影响在使用Navigator时，发现component会从屏�
 		<ul>
 		
 		  
-			<li><a href="/categories/Blog/" title="Blog">Blog<sup>2</sup></a></li>
+			<li><a href="/categories/Blog/" title="Blog">Blog<sup>3</sup></a></li>
 		  
 		
 		  
@@ -288,7 +292,7 @@ Navigator等对布局的影响在使用Navigator时，发现component会从屏�
 			
 		
 			
-				<li><a href="/tags/npm/" title="npm">npm<sup>1</sup></a></li>
+				<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
 			
 		
 			
@@ -299,6 +303,8 @@ Navigator等对布局的影响在使用Navigator时，发现component会从屏�
 				<li><a href="/tags/react-native/" title="react-native">react-native<sup>1</sup></a></li>
 			
 		
+			
+				<li><a href="/tags/npm/" title="npm">npm<sup>1</sup></a></li>
 			
 		
 		</ul>
