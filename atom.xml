@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[MaiZ的博客]]></title>
+  <subtitle><![CDATA[Zack Leonardo]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2015-11-16T10:51:59.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name><![CDATA[Zack Leonardo]]></name>
+    <email><![CDATA[maiz9088@icloud.com]]></email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[css-note css学习笔记]]></title>
+    <link href="http://yoursite.com/2015/11/16/css-note/"/>
+    <id>http://yoursite.com/2015/11/16/css-note/</id>
+    <published>2015-11-16T10:45:33.000Z</published>
+    <updated>2015-11-16T10:51:59.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="CSS_学习笔记">CSS 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习css中的笔记记录。</p>
+<h1 id="高度自增长">高度自增长</h1><p>设置最小高度，然后自增长。</p>
+<blockquote>
+<p><strong>解决:</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">min-height:<span class="number">100</span>px;    <span class="comment">/*高度最小值设置为：100px*/</span></span><br><span class="line">height:auto !important; <span class="comment">/*兼容FF,IE7也支持 !important标签*/</span></span><br><span class="line">height:<span class="number">100</span>px; <span class="comment">/*兼容ie6*/</span></span><br><span class="line">overflow:visible; <span class="comment">/*让IE能够当作height:auto来处理代码，不写也行*/</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="CSS_学习笔记">CSS 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习css中的笔记记录。</p>
+<h1 id="高度自增长">高度自增长</h1><p>设置最小高度，然后自增长。</p>
+<blo]]>
+    </summary>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="Blog" scheme="http://yoursite.com/categories/Blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[react-note react学习笔记]]></title>
+    <link href="http://yoursite.com/2015/11/14/react-note/"/>
+    <id>http://yoursite.com/2015/11/14/react-note/</id>
+    <published>2015-11-14T02:26:08.000Z</published>
+    <updated>2015-11-14T13:29:24.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="React_学习笔记">React 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习react中的笔记记录。</p>
+<h1 id="devDependencies">devDependencies</h1><p>安装到 devDependencies 能让这个 package 能脱离 babel 运行，如果你只希望下载编译后的代码，放到 devDependencies 能让 npm install 不下载 Babel 编译器代码，让你的 package 更容易部署。</p>
+<blockquote>
+<p><strong>解决:</strong></p>
+<p>npm install babel –save-dev</p>
+</blockquote>
+<h1 id="jsx_and_babel">jsx and babel</h1><p>什么是jsx？ jsx有何作用？</p>
+<blockquote>
+<p><strong>jsx是什么:</strong> JSX 是一种类 XML 语言,全称是 JavaScript XML 。<br><strong>jsx的作用：</strong> 在Javascript代码里直接写XML的语法，每一个XML标签都会被JSX转换工具(JSXTransformer)转换成纯Javascript代码，React 官方推荐使用JSX， 当然你想直接使用纯Javascript代码写也是可以的，只是使用JSX，更加方便。</p>
+<p><strong>but！</strong> React v0.14 (next release), the JSXTransformer.js won’t be part of the release. Also <code>react-tools</code> npm package is no more. So whatchagonnawannado is switch to <strong>Babel</strong> .</p>
+</blockquote>
+<p>什么是babel？</p>
+<blockquote>
+<p><strong>babel是什么:</strong> 通天塔，打通了许多“天”。他是js的编译器。<br><strong>babel的作用：</strong> babel作用太多：<a href="https://babeljs.io" target="_blank" rel="external">https://babeljs.io</a> 。简单说，他可以吧es5转译成es6，可以把jsx转译成纯js。</p>
+</blockquote>
+<p>在react中的babel：</p>
+<blockquote>
+<p>之前：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"react/build/react.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"react/build/JSXTransformer.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>现在：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"react/build/react.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"babel/browser.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>使用：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/babel"</span>&gt;</span><br><span class="line">React.render( <span class="xml"><span class="tag">&lt;<span class="title">h1</span>&gt;</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span>, document.getElementById('') );</span><br><span class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>这是在浏览器中，如果放到node里使用呢？</p>
+<blockquote>
+<p>可以直接在node中使用：<a href="https://babeljs.io/docs/setup/#node。" target="_blank" rel="external">https://babeljs.io/docs/setup/#node。</a><br>但是为了方便，也可以通过gulp等来使用：<a href="https://babeljs.io/docs/setup/#gulp。" target="_blank" rel="external">https://babeljs.io/docs/setup/#gulp。</a><br><strong>以gulp为例：</strong><br><strong>首先安装：</strong> 安装gulp和gulp-babel<br>npm install -g gulp<br>npm install –save-dev gulp-babel<br><strong>配置gulp：</strong><br>新建gulpfile.js：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">"gulp"</span>);</span><br><span class="line"><span class="keyword">var</span> babel = <span class="built_in">require</span>(<span class="string">"gulp-babel"</span>);</span><br><span class="line">gulp.task(<span class="string">"default"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">"App/components/test.js"</span>)</span><br><span class="line">    .pipe(babel())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">"dist"</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>还不能运行哟，还要配置babel：</strong><br>新建.babelrc：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  <span class="string">"plugins"</span>: [<span class="string">"transform-react-jsx"</span>],</span><br><span class="line">  <span class="string">"ignore"</span>: [</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>告诉babel要做什么事情，比如：transform-react-jsx。<br><strong>现在可以了：</strong><br>运行gulp： gulp<br>gulp -&gt; gulpfile.js -&gt; default任务 -&gt; ( babel -&gt; .babelrc -&gt; transform-react-jsx ) -&gt; dist下输出结果文件。<br><strong>done！可以使用结果文件了。</strong></p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="React_学习笔记">React 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习react中的笔记记录。</p>
+<h1 id="devDependencies">devDependencies</h1]]>
+    </summary>
+    
+      <category term="node" scheme="http://yoursite.com/tags/node/"/>
+    
+      <category term="react" scheme="http://yoursite.com/tags/react/"/>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[React介绍以及他是如何适应一切的（译）]]></title>
+    <link href="http://yoursite.com/2015/11/09/react-introduction/"/>
+    <id>http://yoursite.com/2015/11/09/react-introduction/</id>
+    <published>2015-11-09T12:43:09.000Z</published>
+    <updated>2015-11-09T12:45:38.000Z</updated>
+    <content type="html"><![CDATA[<p>先将原文转载于此，有时间翻译一下。</p>
+<p>Posted on July 23, 2014 by Craig McKeachie    in React.js, Single-page Applications<br>React.js and How Does It Fit In With Everything Else?</p>
+<p>Introduction</p>
+<p>A few weeks ago I launched my book the JavaScript Framework Guide which focuses on helping developers and designers confidently choose and quickly learn the JavaScript MVC Frameworks: AngularJS, Backbone, and Ember. As part of my launch, I did a live Hangout Q&amp;A on JavaScript MVC Frameworks and a talk at my local JavaScript user group. I always get a lot of questions about comparing and contrasting the frameworks which at this point I feel confident in answering, but by far the most popular question I got was “what about React?” I had listened to a couple different podcasts about it and done the hello world and was honestly still confused and not very excited about React, but what was I missing? To help me better understand React, I wrote down what was confusing me about React in a series of questions then wrote more code, researched and answered each in this post.</p>
+<p>react</p>
+<p>Is React a Template Library?</p>
+<p>The first thing you see when you come to the React site is the statement “Lots of people use React as the V in MVC.” Oh, so my initial thought was, “it’s a template library like handlebars.js (and its new variant htmlbars), mustache.js, dust.js, and the now deprecated jquery templates. I get it.” If you read on it says “Since React makes no assumptions about the rest of your technology stack, it’s easy to try it out on a small feature in an existing project.” My interpretation of this is they want you as a developer to try it out and don’t want to make it seem hard to get started. The phrase “lots of people” is important, because it hints that other people use it for more than the V in MVC. But is React a Template Library? No. In this Quora answer Pete Hunt, the public face and a contributor to React, clarified:</p>
+<p>To set the record straight: React components are far more powerful than Angular templates; they should be compared with Angular’s directives instead. [Directives are Angular’s way of creating custom elements].</p>
+<p>Is React Similar to Web Components?</p>
+<p>Is React simply an implementation of Web Components, the upcoming standard for custom HTML5 user interface elements? As mentioned before, Pete Hunt said React components should be compared to AngularJS directives. The Angular team has always clearly stated a goal of directives informing and eventually being compatible with HTML5 Web Components. So saying React is an implementation of Web Components is logical and correct, but doesn’t tell the whole story. Comparing React to Web Components is the same as comparing AngularJS Directives and Ember Components to Web Components. They are similar but not the same thing. React Components are not Web Components because React is abstracted away from browser while Web Components will be a native browser feature.</p>
+<p>There is a lot of stuff you get for free when you build like the browser doesn’t exists and this is one thing that distinguishes React from Web Components and Polymer and that kind of thing …they’re getting closer and closer in with the browser, and we’re getting farther and farther from the browser. And I think that our technique is more sustainable in the long term. — Pete Hunt on the Code Winds Podcast</p>
+<p> Are the Virtual DOM and Shadow DOM the Same?</p>
+<p>Another thing I was embarrassingly confused about was the question in my head about whether the shadow DOM feature of Web Components and the virtual DOM used by React are the same thing? The Shadow DOM feature of Web Components is not at all related to the the virtual DOM used by React.</p>
+<p>The virtual DOM used by React is simply an internal implementation detail of the framework which powers its amazing rendering performance.</p>
+<p>Virtual DOM</p>
+<p>React keeps two copies of a virtual DOM (the original and updated versions). These two virtual DOM trees are passed into a React function that diffs them and a stream of DOM operations are returned (generally these operations involve setting a property on an element).</p>
+<p>React.js Virtual DOM Infographic</p>
+<p>Share this Image On Your Site</p>
+<p>Shadow DOM</p>
+<p>The Shadow DOM feature of Web Components allows us to encapsulate DOM and CSS as a single element on the page. The canonical example of this is the video element in HTML which when looked at in the Chrome web browser with its Shadow DOM feature enabled shows the complex set of HTML elements that make up the implementation of the element, not just a <video> tag.</video></p>
+<p>video-element-w-shadow-dom</p>
+<p>Can React be used with other JavaScript MVC Frameworks?</p>
+<p>As mentioned earlier the React project’s home pages states “Lots of people use React as the V in MVC. Since React makes no assumptions about the rest of your technology stack, it’s easy to try it out on a small feature in an existing project.” So React can be used with other JavaScript MVC Frameworks by plugging it into a given framework’s web Component technology (Directives in AngularJS, Components in Ember, and smaller item views in Backbone).</p>
+<p>Here are some articles that do a good job demonstrating how to use React with those frameworks.</p>
+<p>AngularJS and React (using the ngReact directive)</p>
+<p>AngularJS and React (using ngReact and a custom directive)</p>
+<p>Backbone and React</p>
+<p>Ember and React<br>(this Ember forum post discusses bringing them together and from what I see it should be possible, but I haven’t seen an example online)</p>
+<p>Who Uses React.js?</p>
+<p>Instagram.com is 100% built on React, both public site and internal tools.<br>Facebook.com‘s commenting interface, business management tools, Lookback video editor, page insights, and most, if not all, new JS development.<br>Khan Academy uses React for most new JS development.<br>Sberbank, Russia’s number one bank, is built with React.<br>The New York Times’s 2014 Red Carpet Project is built with React.<br>Is React a Premature Optimization if you aren’t Facebook or Instagram?</p>
+<p>The React team talks in frames per second when describing their lightning fast rendering. Examples such as this one show lists of 1500 rows taking 1.35 seconds with AngularJS versus 310ms with ReactJs. This begs questions such as, should you ever render 1500 rows (can the user process this much on screen) and is trimming fractions of a second off of load times on reasonably designed pages a premature optimization in most applications?</p>
+<p>Here is another article with a similar performance improvement using React with AngularJS.</p>
+<p>Can I Work with Designers?</p>
+<p>One of the most difficult things to warm up to with React is that the markup is mixed in with the JavaScript. This can make it difficult for developers to work with designers who may be more comfortable in CSS and HTML files and shy away from code. The React team contends that most designers quickly adapt and components can be named to match layers in the PSD document so developers and designers are more easily able to collaborate.</p>
+<p>Will React Hurt my Search Engine Optimization (SEO)?</p>
+<p>React is significantly more SEO friendly than most JavaScript MVC frameworks because it is based on a virtual DOM you can use it on the server without needing a headless browser on the server such as Phantom.js to render pages to search engine bots.</p>
+<p>More specifically, React has the ability to render on the server side and transparently hook up its event handlers on the client, giving you the ability to handle both easily. If you call React.renderComponentToString on the server and then in the browser call React.renderComponent() on a node that already has this server-rendered markup, React will preserve it and only attach event handlers, allowing you to have a very performant first-load experience.</p>
+<p> Is React a Framework for Building Applications or a Library with One Feature?</p>
+<p>Is React a Framework? In other words can I use it by itself to build an application or is it a library, smaller in scope and focused on one feature. Again, this Quora answer from React contributor Pete Hunt does compare it to AngularJS but focuses the comparison on one feature of AngularJS, directives. This to me seems to be a fair comparison, React is a library with one great feature for building high performing web components today.</p>
+<p>React as an Alternative Architecture</p>
+<p>React does have an innovative architecture that can be used to build much more complex applications like the commenting system shown as the tutorial on the React site . The React core is a system for mapping a view hierarchy onto some sort of rendering back end and most often it targets the browser DOM. The React team has stated they are less concerned about the JavaScript reference implementation and instead focused on the architecture of React. In other words, they care about the alternative ideas they are putting out there for building client-side applications more than their specific implementation of them in React.js.</p>
+<p>The innovation React brings is in three main areas:</p>
+<p>1) An alternative to event and data binding framework architectures.</p>
+<p>The React alternative is programming like you are throwing away your entire component and re-rendering it every time because it is simpler and easier to reason about. Event-based and data binding approaches frequently run into timing problems keeping track of which callback gets called first as well as make it difficult to understand how a small change in state will affect performance.</p>
+<p>2) Virtual DOM</p>
+<p>As described earlier, React generates a virtual description of the DOM that we want and then diffs that description with a previous one and emits the changes. This can be done efficiently and programming becomes simpler. We don’t think about synchronizing pieces of data with bindings and don’t think about events firing. You just have a minimal set of state and paint the browser DOM with it. The performance improvements they have been able to achieve with this approach has definitely gotten other frameworks to take notice.</p>
+<p>3) Components</p>
+<p>If you break down your application into smaller components (main menu, footer, list, list item, datepicker, etc.) then it becomes easier to imagine building a complex application and it remaining maintainable. This is the promise of component-based architectures. Essentially it is jQuery plugins but standardized and better encapsulated so an Ember component, works with an Angular component, works with a React component and comes bundled with HTML, CSS, and JavaScript and none of it conflicts with other components on your page. This is the dream.</p>
+<p>React doesn’t quite deliver on the HTML, CSS, and JavaScript encapsulation story like Polymer, but React does have the huge advantage of not being a native browser feature. This abstraction allows it to be a technology that can be trusted today in the browser and on the server to have great performance and is not waiting for the browsers to catch up.</p>
+<p>Are components a better way to build an application?</p>
+<p>React Team members say that once you get beyond the simple hello world examples (where React is more code) React scales better with complexity. Components with encapsulated behavior is how they are able to keep the complexity lower by only looking at smaller pieces. One particularly impressive feature of react is how components can be composed and reused inside other components by simply using the markup for the custom component.</p>
+<p>For example, CommentList and CommentForm are re-used inside CommentBox by simply writing the custom element tags.</p>
+<p>var CommentBox = React.createClass({<br>  render: function() {<br>    return (<br>      <div classname="commentBox"><br>        <h1>Comments</h1><br>        <commentlist><br>           <commentform><br>      </commentform></commentlist></div><br>    );<br>  }<br>});</p>
+<p>Can I build something complex with React?</p>
+<p>From my research React seems to have real strengths in its support for rendering on the server and on the client (in browsers) with great performance and all this is available today. The simple programming model is refreshing, easy to learn, and reminiscent of Backbone. The concerns I have mostly center around can you build a complex line of business application with this technology? Are there enough features there to help you build a modern single-page application and have the developer be productive and the code be maintainable. Or is the React library an innovative idea for how frameworks might rethink their architectures but just one feature of a larger tool set that is needed— similar to how Knockout’s data binding evolved the landscape of JavaScript frameworks from Backbone’s simplicity to the productivity of  more recent frameworks like AngularJS and Ember.</p>
+<p>Let me know what you think about React.js in the comments below and take the time to time to sign up for my free mini-course on JavaScript frameworks and libraries below.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>先将原文转载于此，有时间翻译一下。</p>
+<p>Posted on July 23, 2014 by Craig McKeachie    in React.js, Single-page Applications<br>React.js and How Does It ]]>
+    </summary>
+    
+      <category term="react" scheme="http://yoursite.com/tags/react/"/>
+    
+      <category term="blog" scheme="http://yoursite.com/categories/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[React native 开发笔记－－don't Starve]]></title>
+    <link href="http://yoursite.com/2015/11/08/react-native-dont-starve-note/"/>
+    <id>http://yoursite.com/2015/11/08/react-native-dont-starve-note/</id>
+    <published>2015-11-08T06:48:43.000Z</published>
+    <updated>2015-11-25T13:37:50.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="React_native_开发笔记－－don’t_Starve">React native 开发笔记－－don’t Starve</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习react native，并开发don’t  Starve小程序中遇到的问题以及解决方法和思考。</p>
+<h1 id="Navigator等对布局的影响">Navigator等对布局的影响</h1><p>在使用Navigator时，发现component会从屏幕顶端开始布局，将被navigator遮挡一部分。</p>
+<blockquote>
+<p><strong>解决:</strong></p>
+<ul>
+<li>设置component组件的属性：<br>automaticallyAdjustContentInsets={true}<br>例如：<br><code>&lt;ScrollView
+  automaticallyAdjustContentInsets={true}
+  scrollEventThrottle={200}&gt;</code></li>
+<li>automaticallyAdjustContentInsets：自动调整内容插图</li>
+</ul>
+</blockquote>
+<h1 id="eval—将string转function，可达到动态加载模块或数据的目的">eval—将string转function，可达到动态加载模块或数据的目的</h1><p>有时候希望动态加载数据或者模块。<br>静态：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var MainListItem = require(<span class="string">'./listItem'</span>);</span><br><span class="line">var itemsData = require(<span class="string">'./mainList.json'</span>);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>解决:</strong></p>
+<ul>
+<li><p>json数据：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">｛<span class="string">"itemDataLoader"</span>: <span class="string">"require('./roles.json');"</span>,</span><br><span class="line">  <span class="string">"itemInfoPage"</span>: <span class="string">"require('./roleInfo');"</span>｝</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过在程序中：<br>var itemInfo = eval(itemsData.items[i].itemInfoPage);<br>var itemDataLoader = eval(itemsData.items[i].itemDataLoader);<br>可达到动态加载的目的。</p>
+</li>
+</ul>
+</blockquote>
+<h1 id="node_require,_绝对路径／相当路径">node require, 绝对路径／相当路径</h1><blockquote>
+<p><strong>解决:</strong></p>
+<p>相对路径以 . 开始<br>绝对路径以 / 开始</p>
+</blockquote>
+<h1 id="循环语句中嵌入了render类">循环语句中嵌入了render类</h1><p>例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  var listObj = new Array();</span><br><span class="line">  <span class="keyword">for</span> (var i = <span class="number">0</span>; i &lt; ingredientsData.ingredients.length; i++) &#123;</span><br><span class="line">    var index = i;</span><br><span class="line">listObj[i] = React.createClass(&#123;</span><br><span class="line">      render: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        <span class="built_in">return</span> (</span><br><span class="line">          &lt;List</span><br><span class="line">            data=&#123;ingredientsData.ingredients[i].ingredient&#125;</span><br><span class="line">            info=&#123;ingredientInfo&#125;</span><br><span class="line">            navigator=&#123;this.props.navigator&#125;</span><br><span class="line">          /&gt;</span><br><span class="line">        );</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>data={ingredientsData.ingredients[i].ingredient}, 通过输出i发现：i始终为数组长度，可能原因分析：此处只是react createClassr的声明，实例化是在调用时候实例化，此时i为数组长度。</li>
+</ul>
+<blockquote>
+<p><strong>解决:</strong></p>
+<ul>
+<li>通过map进行遍历。</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">itemsData.items.map((item,i) =&gt; &#123;</span><br><span class="line">  var itemInfo = <span class="built_in">eval</span>(itemsData.items[i].itemInfoPage);</span><br><span class="line">  var itemDataLoader = <span class="built_in">eval</span>(itemsData.items[i].itemDataLoader);</span><br><span class="line">  listObj[i] = React.createClass(&#123;</span><br><span class="line">    render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">      <span class="built_in">return</span> (</span><br><span class="line">        &lt;List</span><br><span class="line">           data=&#123;itemDataLoader.items&#125;</span><br><span class="line">           info=&#123;itemInfo&#125;</span><br><span class="line">           navigator=&#123;this.props.navigator&#125;/&gt;</span><br><span class="line">      );</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p>可以实现。</p>
+</blockquote>
+<h1 id="全局StyleSheet（global_style），简化且统一。">全局StyleSheet（global style），简化且统一。</h1><p>除了inline styles，可采用全局style，简化样式。</p>
+<blockquote>
+<p><strong>解决:</strong></p>
+<ul>
+<li><p>通过维护一个全局style.js文件：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'use strict'</span>;</span><br><span class="line">var React = require(<span class="string">'react-native'</span>);</span><br><span class="line">var &#123;</span><br><span class="line">  StyleSheet,</span><br><span class="line">&#125; = React;</span><br><span class="line">module.exports = StyleSheet.create(&#123;</span><br><span class="line">	alwaysred: &#123;</span><br><span class="line">	    backgroundColor: <span class="string">'red'</span>,</span><br><span class="line">	    height: <span class="number">100</span>,</span><br><span class="line">	    width: <span class="number">100</span>,</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在component中使用：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var s = require(<span class="string">'./style'</span>);</span><br><span class="line">&lt;View style=&#123;s.alwaysred&#125; &gt;</span><br><span class="line">&lt;/View&gt;</span><br></pre></td></tr></table></figure>
+<p>即可。</p>
+</li>
+</ul>
+</blockquote>
+<h1 id="propTypes属性校验">propTypes属性校验</h1><p>不论是我们自己使用还是发布组件供大家使用，都最好对组件传入的数据进行校验，以确保组件能正常被使用。</p>
+<blockquote>
+<p><strong>解决:</strong></p>
+<ul>
+<li><p>设置propTypes校验属性：<br>React.PropTypes声明了一系列的校验确保我们接收的数据是合法的。如果不合法的数据出现在属性当中，控制台会打印警告信息。下面是不同的校验类型：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">React.createClass(&#123;</span><br><span class="line">  propTypes: &#123;</span><br><span class="line">    // You can <span class="built_in">declare</span> that a prop is a specific JS primitive. By default, these</span><br><span class="line">    // are all optional.</span><br><span class="line">    optionalArray: React.PropTypes.array,</span><br><span class="line">    optionalBool: React.PropTypes.bool,</span><br><span class="line">    optionalFunc: React.PropTypes.func,</span><br><span class="line">    optionalNumber: React.PropTypes.number,</span><br><span class="line">    optionalObject: React.PropTypes.object,</span><br><span class="line">    optionalString: React.PropTypes.string,</span><br><span class="line"></span><br><span class="line">     // Anything that can be rendered: numbers, strings, elements or an array</span><br><span class="line">    // containing these types.</span><br><span class="line">    optionalNode: React.PropTypes.node,</span><br><span class="line"></span><br><span class="line">    // A React element.</span><br><span class="line">    optionalElement: React.PropTypes.element,</span><br><span class="line"></span><br><span class="line">    // You can also <span class="built_in">declare</span> that a prop is an instance of a class. This uses</span><br><span class="line">    // JS instanceof operator.</span><br><span class="line">    optionalMessage: React.PropTypes.instanceOf(Message),</span><br><span class="line"></span><br><span class="line">    // You can ensure that your prop is limited to specific values by treating</span><br><span class="line">    // it as an enum.</span><br><span class="line">    optionalEnum: React.PropTypes.oneOf([<span class="string">'News'</span>, <span class="string">'Photos'</span>]),</span><br><span class="line"></span><br><span class="line">    // An object that could be one of many types</span><br><span class="line">    optionalUnion: React.PropTypes.oneOfType([</span><br><span class="line">      React.PropTypes.string,</span><br><span class="line">      React.PropTypes.number,</span><br><span class="line">      React.PropTypes.instanceOf(Message)</span><br><span class="line">    ]),</span><br><span class="line"></span><br><span class="line">    // An array of a certain <span class="built_in">type</span></span><br><span class="line">    optionalArrayOf: React.PropTypes.arrayOf(React.PropTypes.number),</span><br><span class="line"></span><br><span class="line">    // An object with property values of a certain <span class="built_in">type</span></span><br><span class="line">    optionalObjectOf: React.PropTypes.objectOf(React.PropTypes.number),</span><br><span class="line"></span><br><span class="line">    // An object taking on a particular shape</span><br><span class="line">    optionalObjectWithShape: React.PropTypes.shape(&#123;</span><br><span class="line">      color: React.PropTypes.string,</span><br><span class="line">      fontSize: React.PropTypes.number</span><br><span class="line">    &#125;),</span><br><span class="line"></span><br><span class="line">    // You can chain any of the above with `isRequired` to make sure a warning</span><br><span class="line">    // is shown <span class="keyword">if</span> the prop is not provided.</span><br><span class="line">    requiredFunc: React.PropTypes.func.isRequired,</span><br><span class="line"></span><br><span class="line">    // A value of any data <span class="built_in">type</span></span><br><span class="line">    requiredAny: React.PropTypes.any.isRequired,</span><br><span class="line"></span><br><span class="line">    // You can also specify a custom validator. It should <span class="built_in">return</span> an Error</span><br><span class="line">    // object <span class="keyword">if</span> the validation fails. Don<span class="string">'t `console.warn` or throw, as this</span><br><span class="line">    // won'</span>t work inside `oneOfType`.</span><br><span class="line">    customProp: <span class="keyword">function</span>(props, propName, componentName) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!/matchme/.test(props[propName])) &#123;</span><br><span class="line">        <span class="built_in">return</span> new Error(<span class="string">'Validation failed!'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>完毕。</p>
+</li>
+</ul>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="React_native_开发笔记－－don’t_Starve">React native 开发笔记－－don’t Starve</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习react native，并开发don]]>
+    </summary>
+    
+      <category term="react-native" scheme="http://yoursite.com/tags/react-native/"/>
+    
+      <category term="Blog" scheme="http://yoursite.com/categories/Blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[发布Node.js模块到NPM社区]]></title>
+    <link href="http://yoursite.com/2015/11/08/publishModuleToNpm/"/>
+    <id>http://yoursite.com/2015/11/08/publishModuleToNpm/</id>
+    <published>2015-11-08T04:45:53.000Z</published>
+    <updated>2015-11-25T13:34:40.000Z</updated>
+    <content type="html"><![CDATA[<p>参照：<a href="https://github.com/ZackLeonardo/react-native-sudokuGrid" target="_blank" rel="external">https://github.com/ZackLeonardo/react-native-sudokuGrid</a></p>
+<h1 id="首先，需要一个github帐号托管项目；">首先，需要一个github帐号托管项目；</h1><blockquote>
+<p>默认你已会使用github</p>
+<h2 id="创建repository;">创建repository;</h2><p>接下来我们需要创建module所需的repository，这个repository用来托管我们module的代码，并方便用户报告bug，最重要的是可以让其他开发者向module贡献代码。</p>
+</blockquote>
+<h1 id="进入主题：发布node到npm社区；">进入主题：发布node到npm社区；</h1><blockquote>
+<h2 id="初始化package-json;">初始化package.json;</h2><p>进入项目目录，以test为例：<br><strong>$ cd test</strong><br>创建package.json文件，这个文件包含了module的所有信息，比如名称、版本、描述、依赖、作者、license等:<br><strong>$ npm init</strong><br>系统会提示你输入所需的信息，不想输入的直接输入Enter可以跳过。<br>输入完成之后，系统会要你确认文件的内容是否有误，如果没有问题回车，package.json就创建好了。</p>
+<h2 id="加入对其他module的依赖关系">加入对其他module的依赖关系</h2><p>npm init创建的package.json文件只包含了基本的信息，还需要加入对其他module的依赖关系：<br><strong>“dependencies”: {<br>    “mongodb” : “1.3.19”,<br>}</strong></p>
+<h2 id="整体的文件夹结构如下;">整体的文件夹结构如下;</h2><p>test<br> ├─┬ lib<br> │ └── easy_mongo.js<br> ├─┬ test<br> │ └── all.js<br> ├── .gitignore<br> ├── .npmignore<br> ├── .travis.yml<br> ├── index.js<br> ├── LICENSE<br> ├── makefile<br> ├── package.json<br> ├── README.md<br>各文件作用如下：<br>lib目录下存放业务逻辑文件<br>test目录下存放单元测试用例<br>.npmignore记录哪些文件不需要被发布到npmjs.org<br>.travis.yml是持续集成服务travis的描述文件<br>index.js是入口文件<br>makefile方便我们用make test进行测试<br>README.md是此module的描述和使用方法</p>
+<p>根据需求进行添加和编辑。</p>
+<h2 id="配置用户信息;">配置用户信息;</h2><p>完成了上面的步骤之后，在www.npmjs.org注册一个账号，这个账号会被添加到npm本地的配置中，用来发布module用。<br><strong>$ npm adduser<br>Username: your name<br>Password: your password<br>Email: yourmail</strong><br>如果出现以下错误，可能是npm版本太低，通过sudo npm install -g npm升级一下。</p>
+<p>npm WARN adduser Incorrect username or password<br>npm WARN adduser You can reset your account by visiting:<br>npm WARN adduser<br>npm WARN adduser     <a href="http://admin.npmjs.org/reset" target="_blank" rel="external">http://admin.npmjs.org/reset</a><br>npm WARN adduser<br>npm ERR! Error: forbidden may not mix password_sha and pbkdf2<br>npm ERR! You may need to upgrade your version of npm:<br>npm ERR!   npm install npm -g<br>npm ERR! Note that this may need to be run as root/admin (sudo, etc.)<br>成功之后，npm会把认证信息存储在~/.npmrc中，并且可以通过以下命令查看npm当前使用的用户：</p>
+<p><strong>$ npm whoami</strong><br>以上完成之后，我们终于可以发布自己的module了：</p>
+<h2 id="发布module;">发布module;</h2><p><strong>$ npm publish</strong></p>
+<p>如果使用 cnpm 的注意报错：</p>
+<p>no_perms Private mode enable, only admin can publish this module<br>设置回原本的就可以了：</p>
+<p><strong>npm config set registry <a href="http://registry.npmjs.org" target="_blank" rel="external">http://registry.npmjs.org</a></strong><br><strong>npm包package.json中registory属性一定要填写，每次publish npm时package.json中version版本一定要大于上一次。</strong></p>
+</blockquote>
+<p>done!</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>参照：<a href="https://github.com/ZackLeonardo/react-native-sudokuGrid" target="_blank" rel="external">https://github.com/ZackLeonardo/react]]>
+    </summary>
+    
+      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
+    
+      <category term="Blog" scheme="http://yoursite.com/categories/Blog/"/>
+    
+  </entry>
+  
+</feed>
