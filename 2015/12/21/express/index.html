@@ -4,32 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>发布Node.js模块到NPM社区 | MaiZ的博客</title>
+    <title>express学习笔记 | MaiZ的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zack Leonardo">
     
 
-    <meta name="keywords" content="Node, 发布, NPM">
-    <meta name="description" content="参照：https://github.com/ZackLeonardo/react-native-sudokuGrid
-首先，需要一个github帐号托管项目；
-默认你已会使用github
-创建repository;接下来我们需要创建module所需的repository，这个repository用来托管我们module的代码，并方便用户报告bug，最重要的是可以让其他开发者向module贡献代码。">
+    <meta name="keywords" content="Node, express">
+    <meta name="description" content="node-express 学习笔记这篇笔记记录 Zack Leonardo 在学习node-express中的笔记记录。
+ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= variable_name %&amp;gt;输出方式，字符串输出时默认经过escape转义编码。 当我们想要输出一些动态生成的HTML标签时可使用&amp;lt;%- variable_nam %&amp;g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="发布Node.js模块到NPM社区">
-<meta property="og:url" content="http://yoursite.com/2015/11/08/publishModuleToNpm/index.html">
+<meta property="og:title" content="express学习笔记">
+<meta property="og:url" content="http://yoursite.com/2015/12/21/express/index.html">
 <meta property="og:site_name" content="MaiZ的博客">
-<meta property="og:description" content="参照：https://github.com/ZackLeonardo/react-native-sudokuGrid
-首先，需要一个github帐号托管项目；
-默认你已会使用github
-创建repository;接下来我们需要创建module所需的repository，这个repository用来托管我们module的代码，并方便用户报告bug，最重要的是可以让其他开发者向module贡献代码。">
-<meta property="og:updated_time" content="2015-11-25T13:34:40.000Z">
+<meta property="og:description" content="node-express 学习笔记这篇笔记记录 Zack Leonardo 在学习node-express中的笔记记录。
+ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= variable_name %&amp;gt;输出方式，字符串输出时默认经过escape转义编码。 当我们想要输出一些动态生成的HTML标签时可使用&amp;lt;%- variable_nam %&amp;g">
+<meta property="og:updated_time" content="2015-12-21T06:40:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="发布Node.js模块到NPM社区">
-<meta name="twitter:description" content="参照：https://github.com/ZackLeonardo/react-native-sudokuGrid
-首先，需要一个github帐号托管项目；
-默认你已会使用github
-创建repository;接下来我们需要创建module所需的repository，这个repository用来托管我们module的代码，并方便用户报告bug，最重要的是可以让其他开发者向module贡献代码。">
+<meta name="twitter:title" content="express学习笔记">
+<meta name="twitter:description" content="node-express 学习笔记这篇笔记记录 Zack Leonardo 在学习node-express中的笔记记录。
+ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= variable_name %&amp;gt;输出方式，字符串输出时默认经过escape转义编码。 当我们想要输出一些动态生成的HTML标签时可使用&amp;lt;%- variable_nam %&amp;g">
 
     
     <link rel="alternative" href="/atom.xml" title="MaiZ的博客" type="application/atom+xml">
@@ -89,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/11/08/publishModuleToNpm/" title="发布Node.js模块到NPM社区" itemprop="url">发布Node.js模块到NPM社区</a>
+      <a href="/2015/12/21/express/" title="express学习笔记" itemprop="url">express学习笔记</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zack Leonardo" target="_blank" itemprop="author">Zack Leonardo</a>
 		
   <p class="article-time">
-    <time datetime="2015-11-08T04:45:53.000Z" itemprop="datePublished"> 发表于 2015-11-08</time>
+    <time datetime="2015-12-21T06:37:16.000Z" itemprop="datePublished"> 发表于 2015-12-21</time>
     
   </p>
 </header>
@@ -105,29 +99,16 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#首先，需要一个github帐号托管项目；"><span class="toc-number">1.</span> <span class="toc-text">首先，需要一个github帐号托管项目；</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建repository;"><span class="toc-number">1.1.</span> <span class="toc-text">创建repository;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#进入主题：发布node到npm社区；"><span class="toc-number">2.</span> <span class="toc-text">进入主题：发布node到npm社区；</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化package-json;"><span class="toc-number">2.1.</span> <span class="toc-text">初始化package.json;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加入对其他module的依赖关系"><span class="toc-number">2.2.</span> <span class="toc-text">加入对其他module的依赖关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整体的文件夹结构如下;"><span class="toc-number">2.3.</span> <span class="toc-text">整体的文件夹结构如下;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置用户信息;"><span class="toc-number">2.4.</span> <span class="toc-text">配置用户信息;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布module;"><span class="toc-number">2.5.</span> <span class="toc-text">发布module;</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#node-express_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">node-express 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ejs–报错_“XXX_is_not_defined”"><span class="toc-number">2.</span> <span class="toc-text">ejs–报错 “XXX is not defined”</span></a></li></ol>
 		
 		</div>
 		
-		<p>参照：<a href="https://github.com/ZackLeonardo/react-native-sudokuGrid" target="_blank" rel="external">https://github.com/ZackLeonardo/react-native-sudokuGrid</a></p>
-<h1 id="首先，需要一个github帐号托管项目；">首先，需要一个github帐号托管项目；</h1><blockquote>
-<p>默认你已会使用github</p>
-<h2 id="创建repository;">创建repository;</h2><p>接下来我们需要创建module所需的repository，这个repository用来托管我们module的代码，并方便用户报告bug，最重要的是可以让其他开发者向module贡献代码。</p>
+		<h1 id="node-express_学习笔记">node-express 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习node-express中的笔记记录。</p>
+<h1 id="ejs–报错_“XXX_is_not_defined”">ejs–报错 “XXX is not defined”</h1><p>使用EJS模板变量值使用&lt;%= variable_name %&gt;输出方式，字符串输出时默认经过escape转义编码。 当我们想要输出一些动态生成的HTML标签时可使用&lt;%- variable_nam %&gt;输出方式，这种方式不会被escape转义编码。</p>
+<blockquote>
+<p><strong>解决:</strong></p>
+<p>&lt;%- XXX %&gt; 改为 &lt;%- locals.XXX %&gt;</p>
 </blockquote>
-<h1 id="进入主题：发布node到npm社区；">进入主题：发布node到npm社区；</h1><blockquote>
-<h2 id="初始化package-json;">初始化package.json;</h2><p>进入项目目录，以test为例：<br><strong>$ cd test</strong><br>创建package.json文件，这个文件包含了module的所有信息，比如名称、版本、描述、依赖、作者、license等:<br><strong>$ npm init</strong><br>系统会提示你输入所需的信息，不想输入的直接输入Enter可以跳过。<br>输入完成之后，系统会要你确认文件的内容是否有误，如果没有问题回车，package.json就创建好了。</p>
-<h2 id="加入对其他module的依赖关系">加入对其他module的依赖关系</h2><p>npm init创建的package.json文件只包含了基本的信息，还需要加入对其他module的依赖关系：<br><strong>“dependencies”: {<br>    “mongodb” : “1.3.19”,<br>}</strong></p>
-<h2 id="整体的文件夹结构如下;">整体的文件夹结构如下;</h2><p>test<br> ├─┬ lib<br> │ └── easy_mongo.js<br> ├─┬ test<br> │ └── all.js<br> ├── .gitignore<br> ├── .npmignore<br> ├── .travis.yml<br> ├── index.js<br> ├── LICENSE<br> ├── makefile<br> ├── package.json<br> ├── README.md<br>各文件作用如下：<br>lib目录下存放业务逻辑文件<br>test目录下存放单元测试用例<br>.npmignore记录哪些文件不需要被发布到npmjs.org<br>.travis.yml是持续集成服务travis的描述文件<br>index.js是入口文件<br>makefile方便我们用make test进行测试<br>README.md是此module的描述和使用方法</p>
-<p>根据需求进行添加和编辑。</p>
-<h2 id="配置用户信息;">配置用户信息;</h2><p>完成了上面的步骤之后，在www.npmjs.org注册一个账号，这个账号会被添加到npm本地的配置中，用来发布module用。<br><strong>$ npm adduser<br>Username: your name<br>Password: your password<br>Email: yourmail</strong><br>如果出现以下错误，可能是npm版本太低，通过sudo npm install -g npm升级一下。</p>
-<p>npm WARN adduser Incorrect username or password<br>npm WARN adduser You can reset your account by visiting:<br>npm WARN adduser<br>npm WARN adduser     <a href="http://admin.npmjs.org/reset" target="_blank" rel="external">http://admin.npmjs.org/reset</a><br>npm WARN adduser<br>npm ERR! Error: forbidden may not mix password_sha and pbkdf2<br>npm ERR! You may need to upgrade your version of npm:<br>npm ERR!   npm install npm -g<br>npm ERR! Note that this may need to be run as root/admin (sudo, etc.)<br>成功之后，npm会把认证信息存储在~/.npmrc中，并且可以通过以下命令查看npm当前使用的用户：</p>
-<p><strong>$ npm whoami</strong><br>以上完成之后，我们终于可以发布自己的module了：</p>
-<h2 id="发布module;">发布module;</h2><p><strong>$ npm publish</strong></p>
-<p>如果使用 cnpm 的注意报错：</p>
-<p>no_perms Private mode enable, only admin can publish this module<br>设置回原本的就可以了：</p>
-<p><strong>npm config set registry <a href="http://registry.npmjs.org" target="_blank" rel="external">http://registry.npmjs.org</a></strong><br><strong>npm包package.json中registory属性一定要填写，每次publish npm时package.json中version版本一定要大于上一次。</strong></p>
-</blockquote>
-<p>done!</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -135,13 +116,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Blog/">Blog</a>
+  <a class="article-category-link" href="/categories/Note/">Note</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/npm/">npm</a>
+  <span></span> <a href="/tags/express/">express</a><a href="/tags/node/">node</a>
   </div>
 
 </div>
@@ -150,7 +131,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/11/08/publishModuleToNpm/" data-title="发布Node.js模块到NPM社区 | MaiZ的博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/12/21/express/" data-title="express学习笔记 | MaiZ的博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -164,19 +145,27 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/11/08/react-native-dont-starve-note/" title="React native 开发笔记－－don&#39;t Starve">
+ <a href="/2015/12/22/intellij-idea/" title="intellij_idea">
   <strong>上一篇：</strong><br/>
   <span>
-  React native 开发笔记－－don&#39;t Starve</span>
+  intellij_idea</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2015/11/16/css-note/"  title="css-note css学习笔记">
+ <strong>下一篇：</strong><br/> 
+ <span>css-note css学习笔记
+</span>
+</a>
+</div>
 
 </nav>
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/11/08/publishModuleToNpm/" data-title="发布Node.js模块到NPM社区" data-url="http://yoursite.com/2015/11/08/publishModuleToNpm/"></div>
+	<div class="ds-thread" data-thread-key="2015/12/21/express/" data-title="express学习笔记" data-url="http://yoursite.com/2015/12/21/express/"></div>
 </section>
 
 
@@ -186,7 +175,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#首先，需要一个github帐号托管项目；"><span class="toc-number">1.</span> <span class="toc-text">首先，需要一个github帐号托管项目；</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建repository;"><span class="toc-number">1.1.</span> <span class="toc-text">创建repository;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#进入主题：发布node到npm社区；"><span class="toc-number">2.</span> <span class="toc-text">进入主题：发布node到npm社区；</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化package-json;"><span class="toc-number">2.1.</span> <span class="toc-text">初始化package.json;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加入对其他module的依赖关系"><span class="toc-number">2.2.</span> <span class="toc-text">加入对其他module的依赖关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整体的文件夹结构如下;"><span class="toc-number">2.3.</span> <span class="toc-text">整体的文件夹结构如下;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置用户信息;"><span class="toc-number">2.4.</span> <span class="toc-text">配置用户信息;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布module;"><span class="toc-number">2.5.</span> <span class="toc-text">发布module;</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#node-express_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">node-express 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ejs–报错_“XXX_is_not_defined”"><span class="toc-number">2.</span> <span class="toc-text">ejs–报错 “XXX is not defined”</span></a></li></ol>
  
   </div>
 

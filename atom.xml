@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Zack Leonardo]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-11-16T10:51:59.000Z</updated>
+  <updated>2015-12-22T03:21:48.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[intellij_idea]]></title>
+    <link href="http://yoursite.com/2015/12/22/intellij-idea/"/>
+    <id>http://yoursite.com/2015/12/22/intellij-idea/</id>
+    <published>2015-12-22T03:16:56.000Z</published>
+    <updated>2015-12-22T03:21:48.000Z</updated>
+    <content type="html"><![CDATA[<p>title: intellij_idea笔记<br>date: 2015-12-22 11:16:56<br>categories: Blog<br>tags: [idea]</p>
+<h2 id="keywords:_idea">keywords: idea</h2><h1 id="intellij_idea使用笔记">intellij idea使用笔记</h1><h1 id="intellij_idea_15_安装破解">intellij idea 15 安装破解</h1><blockquote>
+<p><strong>解决:</strong></p>
+<p>注册时选择License server，填<a href="http://idea.lanyus.com，然后点击OK，就注册了" target="_blank" rel="external">http://idea.lanyus.com，然后点击OK，就注册了</a></p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>title: intellij_idea笔记<br>date: 2015-12-22 11:16:56<br>categories: Blog<br>tags: [idea]</p>
+<h2 id="keywords:_idea">keywords: idea</h2><h]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[express学习笔记]]></title>
+    <link href="http://yoursite.com/2015/12/21/express/"/>
+    <id>http://yoursite.com/2015/12/21/express/</id>
+    <published>2015-12-21T06:37:16.000Z</published>
+    <updated>2015-12-21T06:40:23.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="node-express_学习笔记">node-express 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习node-express中的笔记记录。</p>
+<h1 id="ejs–报错_“XXX_is_not_defined”">ejs–报错 “XXX is not defined”</h1><p>使用EJS模板变量值使用&lt;%= variable_name %&gt;输出方式，字符串输出时默认经过escape转义编码。 当我们想要输出一些动态生成的HTML标签时可使用&lt;%- variable_nam %&gt;输出方式，这种方式不会被escape转义编码。</p>
+<blockquote>
+<p><strong>解决:</strong></p>
+<p>&lt;%- XXX %&gt; 改为 &lt;%- locals.XXX %&gt;</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="node-express_学习笔记">node-express 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习node-express中的笔记记录。</p>
+<h1 id="ejs–报错_“XXX_is_]]>
+    </summary>
+    
+      <category term="express" scheme="http://yoursite.com/tags/express/"/>
+    
+      <category term="node" scheme="http://yoursite.com/tags/node/"/>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[css-note css学习笔记]]></title>
@@ -164,7 +209,7 @@
     <link href="http://yoursite.com/2015/11/08/react-native-dont-starve-note/"/>
     <id>http://yoursite.com/2015/11/08/react-native-dont-starve-note/</id>
     <published>2015-11-08T06:48:43.000Z</published>
-    <updated>2015-11-25T13:37:50.000Z</updated>
+    <updated>2015-11-25T14:22:53.000Z</updated>
     <content type="html"><![CDATA[<h1 id="React_native_开发笔记－－don’t_Starve">React native 开发笔记－－don’t Starve</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习react native，并开发don’t  Starve小程序中遇到的问题以及解决方法和思考。</p>
 <h1 id="Navigator等对布局的影响">Navigator等对布局的影响</h1><p>在使用Navigator时，发现component会从屏幕顶端开始布局，将被navigator遮挡一部分。</p>
 <blockquote>
