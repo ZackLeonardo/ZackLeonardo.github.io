@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Zack Leonardo]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-12-22T05:43:48.000Z</updated>
+  <updated>2015-12-22T07:51:24.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/2015/12/22/intellij-idea/"/>
     <id>http://yoursite.com/2015/12/22/intellij-idea/</id>
     <published>2015-12-22T03:16:56.000Z</published>
-    <updated>2015-12-22T05:43:48.000Z</updated>
+    <updated>2015-12-22T07:51:24.000Z</updated>
     <content type="html"><![CDATA[<h1 id="intellij_idea使用笔记">intellij idea使用笔记</h1><h1 id="intellij_idea_15_安装破解">intellij idea 15 安装破解</h1><blockquote>
 <p><strong>解决:</strong></p>
 <p>注册时选择License server，填 <a href="http://idea.lanyus.com" target="_blank" rel="external">http://idea.lanyus.com</a> ，然后点击OK，就注册了</p>
@@ -45,12 +45,22 @@
     <link href="http://yoursite.com/2015/12/21/express/"/>
     <id>http://yoursite.com/2015/12/21/express/</id>
     <published>2015-12-21T06:37:16.000Z</published>
-    <updated>2015-12-21T06:40:23.000Z</updated>
+    <updated>2015-12-22T08:57:03.000Z</updated>
     <content type="html"><![CDATA[<h1 id="node-express_学习笔记">node-express 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习node-express中的笔记记录。</p>
 <h1 id="ejs–报错_“XXX_is_not_defined”">ejs–报错 “XXX is not defined”</h1><p>使用EJS模板变量值使用&lt;%= variable_name %&gt;输出方式，字符串输出时默认经过escape转义编码。 当我们想要输出一些动态生成的HTML标签时可使用&lt;%- variable_nam %&gt;输出方式，这种方式不会被escape转义编码。</p>
 <blockquote>
 <p><strong>解决:</strong></p>
 <p>&lt;%- XXX %&gt; 改为 &lt;%- locals.XXX %&gt;</p>
+</blockquote>
+<h1 id="ejs–简单实例">ejs–简单实例</h1><p>使用ejs的好处在于可以后台数据动态配置前端页面，写了一个简单例子如下：</p>
+<blockquote>
+<p><strong>例子：</strong></p>
+<p>ejs定义模版长什么样<br>example.ejs:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;<span class="xml"><span class="tag">&lt;<span class="title">%=</span> <span class="attribute">title</span> %&gt;</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">%</span> <span class="attribute">for</span>(<span class="attribute">var</span> <span class="attribute">i</span>=<span class="value">0;</span> <span class="attribute">i</span>&lt;<span class="attribute">supplies.length</span>; <span class="attribute">i</span>++) &#123; %&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">'supplies/&lt;%= supplies[i] %&gt;'</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">%=</span> <span class="attribute">supplies</span>[<span class="attribute">i</span>] %&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">%</span> &#125; %&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>下面使用ejs模版<br>example.html:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>ejs test<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"js/ejs_production.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"js/jquery-2.1.4.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"testEJS"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">      <span class="keyword">var</span> data = &#123;	title:	<span class="string">'Cleaning Supplies'</span>,</span><br><span class="line">                 supplies:	[<span class="string">'mop'</span>, <span class="string">'broom'</span>, <span class="string">'duster'</span>]	&#125;;</span><br><span class="line">      <span class="keyword">var</span> html = <span class="keyword">new</span> EJS(&#123;url: <span class="string">'example.ejs'</span>&#125;).render(data);</span><br><span class="line">      $(<span class="string">"#testEJS"</span>).html(html);<span class="comment">//</span></span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>通过ejs.render(data),渲染出界面。</p>
 </blockquote>
 ]]></content>
     <summary type="html">
