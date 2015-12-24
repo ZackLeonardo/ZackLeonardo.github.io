@@ -21,7 +21,7 @@ function foo(){} 与 var foo = function(){} 的区别
 <meta property="og:description" content="javascript 学习笔记这篇笔记记录 Zack Leonardo 在学习javascript中的笔记记录。
 function foo(){} 与 var foo = function(){} 的区别
 解答function foo(){} 定义一个函数foovar foo = function(){} 定义一个变量，引用一个匿名函数。当JS引擎执行到这行时，会先执行右边，返回值是一个函数的字面">
-<meta property="og:updated_time" content="2015-12-23T05:46:47.000Z">
+<meta property="og:updated_time" content="2015-12-24T01:46:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript学习笔记">
 <meta name="twitter:description" content="javascript 学习笔记这篇笔记记录 Zack Leonardo 在学习javascript中的笔记记录。
@@ -102,7 +102,7 @@ function foo(){} 与 var foo = function(){} 的区别
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#javascript_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">javascript 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#function_foo(){}_与_var_foo_=_function(){}_的区别"><span class="toc-number">2.</span> <span class="toc-text">function foo(){} 与 var foo = function(){} 的区别</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#javascript_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">javascript 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#function_foo(){}_与_var_foo_=_function(){}_的区别"><span class="toc-number">2.</span> <span class="toc-text">function foo(){} 与 var foo = function(){} 的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#去除换行_and_所有空格"><span class="toc-number">3.</span> <span class="toc-text">去除换行 and 所有空格</span></a></li></ol>
 		
 		</div>
 		
@@ -110,6 +110,18 @@ function foo(){} 与 var foo = function(){} 的区别
 <h1 id="function_foo(){}_与_var_foo_=_function(){}_的区别">function foo(){} 与 var foo = function(){} 的区别</h1><blockquote>
 <p><strong>解答</strong><br>function foo(){} 定义一个函数foo<br>var foo = function(){} 定义一个变量，引用一个匿名函数。<br>当JS引擎执行到这行时，会先执行右边，返回值是一个函数的字面量，然后将这个函数字面量赋值给foo<br>(function(){})(); 可用于立即执行的匿名函数。首先在第一对括号内，是一个匿名函数，第二个括号会立即调用这个匿名函数的返回值，也就是匿名函数中的内容被立即执行。</p>
 </blockquote>
+<h1 id="去除换行_and_所有空格">去除换行 and 所有空格</h1><blockquote>
+<p><strong>解答</strong></p>
+<ol>
+<li><p>去除换行</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.Trim_n = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/\r\n|\n/g</span>,<span class="string">""</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>去除所有空格</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeAllSpace</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.replace(<span class="regexp">/\s+/g</span>, <span class="string">""</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -176,7 +188,7 @@ function foo(){} 与 var foo = function(){} 的区别
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#javascript_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">javascript 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#function_foo(){}_与_var_foo_=_function(){}_的区别"><span class="toc-number">2.</span> <span class="toc-text">function foo(){} 与 var foo = function(){} 的区别</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#javascript_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">javascript 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#function_foo(){}_与_var_foo_=_function(){}_的区别"><span class="toc-number">2.</span> <span class="toc-text">function foo(){} 与 var foo = function(){} 的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#去除换行_and_所有空格"><span class="toc-number">3.</span> <span class="toc-text">去除换行 and 所有空格</span></a></li></ol>
  
   </div>
 
