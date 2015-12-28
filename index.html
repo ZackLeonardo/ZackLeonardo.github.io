@@ -325,6 +325,11 @@
 </ol>
 </blockquote>
 <p>&gt;</p>
+<h1 id="equals方法和“==”的区别">equals方法和“==”的区别</h1><p><a href="http://blog.csdn.net/SCAUSCNU/article/details/6198883" target="_blank" rel="external">http://blog.csdn.net/SCAUSCNU/article/details/6198883</a></p>
+<h1 id="js中JSON为何不能push">js中JSON为何不能push</h1><blockquote>
+<p><strong>解答</strong><br>json在JS中本身也是个对象，创建、访问都可以用对象的方法。所以不能用数组的push方法。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;name1:<span class="string">"value1"</span>, name2:<span class="string">"value2"</span>&#125;; <span class="comment">// 新建</span></span><br><span class="line"></span><br><span class="line">obj.name3 = <span class="string">"value3"</span>; <span class="comment">// 添加</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;name4:<span class="string">"value4"</span>, name5:obj&#125; <span class="comment">// 新建并引用创建元素</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (obj2.obj.name1) &#123;<span class="keyword">var</span> x = obj2.name4;&#125; <span class="comment">// 访问</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>&gt;</p>
 
         
         
