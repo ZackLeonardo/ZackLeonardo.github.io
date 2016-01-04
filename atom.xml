@@ -165,7 +165,7 @@
     <link href="http://yoursite.com/2015/11/14/react-note/"/>
     <id>http://yoursite.com/2015/11/14/react-note/</id>
     <published>2015-11-14T02:26:08.000Z</published>
-    <updated>2015-11-14T13:29:24.000Z</updated>
+    <updated>2016-01-04T13:47:54.000Z</updated>
     <content type="html"><![CDATA[<h1 id="React_学习笔记">React 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习react中的笔记记录。</p>
 <h1 id="devDependencies">devDependencies</h1><p>安装到 devDependencies 能让这个 package 能脱离 babel 运行，如果你只希望下载编译后的代码，放到 devDependencies 能让 npm install 不下载 Babel 编译器代码，让你的 package 更容易部署。</p>
 <blockquote>
@@ -192,6 +192,14 @@
 <p>可以直接在node中使用：<a href="https://babeljs.io/docs/setup/#node。" target="_blank" rel="external">https://babeljs.io/docs/setup/#node。</a><br>但是为了方便，也可以通过gulp等来使用：<a href="https://babeljs.io/docs/setup/#gulp。" target="_blank" rel="external">https://babeljs.io/docs/setup/#gulp。</a><br><strong>以gulp为例：</strong><br><strong>首先安装：</strong> 安装gulp和gulp-babel<br>npm install -g gulp<br>npm install –save-dev gulp-babel<br><strong>配置gulp：</strong><br>新建gulpfile.js：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">"gulp"</span>);</span><br><span class="line"><span class="keyword">var</span> babel = <span class="built_in">require</span>(<span class="string">"gulp-babel"</span>);</span><br><span class="line">gulp.task(<span class="string">"default"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">"App/components/test.js"</span>)</span><br><span class="line">    .pipe(babel())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">"dist"</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p><strong>还不能运行哟，还要配置babel：</strong><br>新建.babelrc：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  <span class="string">"plugins"</span>: [<span class="string">"transform-react-jsx"</span>],</span><br><span class="line">  <span class="string">"ignore"</span>: [</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>告诉babel要做什么事情，比如：transform-react-jsx。<br><strong>现在可以了：</strong><br>运行gulp： gulp<br>gulp -&gt; gulpfile.js -&gt; default任务 -&gt; ( babel -&gt; .babelrc -&gt; transform-react-jsx ) -&gt; dist下输出结果文件。<br><strong>done！可以使用结果文件了。</strong></p>
+</blockquote>
+<h1 id="Error:_Cannot_find_module_‘react/lib/ExecutionEnvironment’－－－－react-style">Error: Cannot find module ‘react/lib/ExecutionEnvironment’－－－－react-style</h1><blockquote>
+<p><strong>解决:</strong></p>
+<ol>
+<li>安装fbjs：<br>npm i -D fbjs</li>
+<li>修改react-style/lib/index.js中：<br>var ExecutionEnvironment = require(‘react/lib/ExecutionEnvironment’);<br>为：<br>var ExecutionEnvironment = require(‘fbjs/lib/ExecutionEnvironment’);</li>
+<li>修改react-style/lib/stylesToCSS.js中：<br>var hyphenateStyleName = require(‘react/lib/hyphenateStyleName’);<br>为：<br>var hyphenateStyleName = require(‘fbjs/lib/hyphenateStyleName’);</li>
+</ol>
 </blockquote>
 ]]></content>
     <summary type="html">

@@ -484,6 +484,14 @@
 <p><strong>还不能运行哟，还要配置babel：</strong><br>新建.babelrc：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  <span class="string">"plugins"</span>: [<span class="string">"transform-react-jsx"</span>],</span><br><span class="line">  <span class="string">"ignore"</span>: [</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>告诉babel要做什么事情，比如：transform-react-jsx。<br><strong>现在可以了：</strong><br>运行gulp： gulp<br>gulp -&gt; gulpfile.js -&gt; default任务 -&gt; ( babel -&gt; .babelrc -&gt; transform-react-jsx ) -&gt; dist下输出结果文件。<br><strong>done！可以使用结果文件了。</strong></p>
 </blockquote>
+<h1 id="Error:_Cannot_find_module_‘react/lib/ExecutionEnvironment’－－－－react-style">Error: Cannot find module ‘react/lib/ExecutionEnvironment’－－－－react-style</h1><blockquote>
+<p><strong>解决:</strong></p>
+<ol>
+<li>安装fbjs：<br>npm i -D fbjs</li>
+<li>修改react-style/lib/index.js中：<br>var ExecutionEnvironment = require(‘react/lib/ExecutionEnvironment’);<br>为：<br>var ExecutionEnvironment = require(‘fbjs/lib/ExecutionEnvironment’);</li>
+<li>修改react-style/lib/stylesToCSS.js中：<br>var hyphenateStyleName = require(‘react/lib/hyphenateStyleName’);<br>为：<br>var hyphenateStyleName = require(‘fbjs/lib/hyphenateStyleName’);</li>
+</ol>
+</blockquote>
 
         
         
