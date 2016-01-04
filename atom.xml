@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Zack Leonardo]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-12-22T07:51:24.000Z</updated>
+  <updated>2016-01-04T04:32:55.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[node学习笔记]]></title>
+    <link href="http://yoursite.com/2016/01/04/node-note/"/>
+    <id>http://yoursite.com/2016/01/04/node-note/</id>
+    <published>2016-01-04T04:30:42.000Z</published>
+    <updated>2016-01-04T04:32:55.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="node_学习笔记">node 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习node中的笔记记录。</p>
+<h1 id="node_编译es6">node 编译es6</h1><blockquote>
+<p><strong>解答</strong><br>node –use-strict –harmony filename</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="node_学习笔记">node 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习node中的笔记记录。</p>
+<h1 id="node_编译es6">node 编译es6</h1><blockquote>]]>
+    </summary>
+    
+      <category term="node" scheme="http://yoursite.com/tags/node/"/>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[intellij_idea笔记]]></title>
