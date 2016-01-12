@@ -127,7 +127,7 @@
     <link href="http://yoursite.com/2015/11/16/javascript/"/>
     <id>http://yoursite.com/2015/11/16/javascript/</id>
     <published>2015-11-16T03:22:55.000Z</published>
-    <updated>2015-12-28T14:35:15.000Z</updated>
+    <updated>2016-01-12T06:47:44.000Z</updated>
     <content type="html"><![CDATA[<h1 id="javascript_学习笔记">javascript 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习javascript中的笔记记录。</p>
 <h1 id="function_foo(){}_与_var_foo_=_function(){}_的区别">function foo(){} 与 var foo = function(){} 的区别</h1><blockquote>
 <p><strong>解答</strong><br>function foo(){} 定义一个函数foo<br>var foo = function(){} 定义一个变量，引用一个匿名函数。<br>当JS引擎执行到这行时，会先执行右边，返回值是一个函数的字面量，然后将这个函数字面量赋值给foo<br>(function(){})(); 可用于立即执行的匿名函数。首先在第一对括号内，是一个匿名函数，第二个括号会立即调用这个匿名函数的返回值，也就是匿名函数中的内容被立即执行。</p>
@@ -143,11 +143,17 @@
 </li>
 </ol>
 </blockquote>
+<p>&gt;</p>
 <h1 id="equals方法和“==”的区别">equals方法和“==”的区别</h1><p><a href="http://blog.csdn.net/SCAUSCNU/article/details/6198883" target="_blank" rel="external">http://blog.csdn.net/SCAUSCNU/article/details/6198883</a></p>
 <h1 id="js中JSON为何不能push">js中JSON为何不能push</h1><blockquote>
 <p><strong>解答</strong><br>json在JS中本身也是个对象，创建、访问都可以用对象的方法。所以不能用数组的push方法。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;name1:<span class="string">"value1"</span>, name2:<span class="string">"value2"</span>&#125;; <span class="comment">// 新建</span></span><br><span class="line"></span><br><span class="line">obj.name3 = <span class="string">"value3"</span>; <span class="comment">// 添加</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;name4:<span class="string">"value4"</span>, name5:obj&#125; <span class="comment">// 新建并引用创建元素</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (obj2.obj.name1) &#123;<span class="keyword">var</span> x = obj2.name4;&#125; <span class="comment">// 访问</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>&gt;</p>
+<h1 id="JSON与JS对象的相互转换">JSON与JS对象的相互转换</h1><blockquote>
+<p><strong>解答</strong><br>JS对象转换成为JSON:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(object);</span><br></pre></td></tr></table></figure></p>
+<p>JSON对象解析:<br>jQuery:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = $.parseJSON(json_data);</span><br></pre></td></tr></table></figure></p>
+<p>node:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.parse(json_data);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="javascript_学习笔记">javascript 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习javascript中的笔记记录。</p>
@@ -165,7 +171,7 @@
     <link href="http://yoursite.com/2015/11/14/react-note/"/>
     <id>http://yoursite.com/2015/11/14/react-note/</id>
     <published>2015-11-14T02:26:08.000Z</published>
-    <updated>2016-01-04T13:47:54.000Z</updated>
+    <updated>2016-01-12T07:31:32.000Z</updated>
     <content type="html"><![CDATA[<h1 id="React_学习笔记">React 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习react中的笔记记录。</p>
 <h1 id="devDependencies">devDependencies</h1><p>安装到 devDependencies 能让这个 package 能脱离 babel 运行，如果你只希望下载编译后的代码，放到 devDependencies 能让 npm install 不下载 Babel 编译器代码，让你的 package 更容易部署。</p>
 <blockquote>
@@ -201,6 +207,7 @@
 <li>修改react-style/lib/stylesToCSS.js中：<br>var hyphenateStyleName = require(‘react/lib/hyphenateStyleName’);<br>为：<br>var hyphenateStyleName = require(‘fbjs/lib/hyphenateStyleName’);</li>
 </ol>
 </blockquote>
+<h1 id="redux的思想来源，深度好博">redux的思想来源，深度好博</h1><p><a href="https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.7w5j383mb" target="_blank" rel="external">https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.7w5j383mb</a></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="React_学习笔记">React 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习react中的笔记记录。</p>
