@@ -21,7 +21,7 @@ function foo(){} 与 var foo = function(){} 的区别
 <meta property="og:description" content="javascript 学习笔记这篇笔记记录 Zack Leonardo 在学习javascript中的笔记记录。
 function foo(){} 与 var foo = function(){} 的区别
 解答function foo(){} 定义一个函数foovar foo = function(){} 定义一个变量，引用一个匿名函数。当JS引擎执行到这行时，会先执行右边，返回值是一个函数的字面">
-<meta property="og:updated_time" content="2016-01-12T06:47:44.000Z">
+<meta property="og:updated_time" content="2016-01-20T08:52:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript学习笔记">
 <meta name="twitter:description" content="javascript 学习笔记这篇笔记记录 Zack Leonardo 在学习javascript中的笔记记录。
@@ -102,7 +102,7 @@ function foo(){} 与 var foo = function(){} 的区别
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#javascript_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">javascript 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#function_foo(){}_与_var_foo_=_function(){}_的区别"><span class="toc-number">2.</span> <span class="toc-text">function foo(){} 与 var foo = function(){} 的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#去除换行_and_所有空格"><span class="toc-number">3.</span> <span class="toc-text">去除换行 and 所有空格</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#equals方法和“==”的区别"><span class="toc-number">4.</span> <span class="toc-text">equals方法和“==”的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#js中JSON为何不能push"><span class="toc-number">5.</span> <span class="toc-text">js中JSON为何不能push</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSON与JS对象的相互转换"><span class="toc-number">6.</span> <span class="toc-text">JSON与JS对象的相互转换</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#javascript_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">javascript 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#function_foo(){}_与_var_foo_=_function(){}_的区别"><span class="toc-number">2.</span> <span class="toc-text">function foo(){} 与 var foo = function(){} 的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#去除换行_and_所有空格"><span class="toc-number">3.</span> <span class="toc-text">去除换行 and 所有空格</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#equals方法和“==”的区别"><span class="toc-number">4.</span> <span class="toc-text">equals方法和“==”的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#js中JSON为何不能push"><span class="toc-number">5.</span> <span class="toc-text">js中JSON为何不能push</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSON与JS对象的相互转换"><span class="toc-number">6.</span> <span class="toc-text">JSON与JS对象的相互转换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#笔记：《javascript:_the_good_parts》"><span class="toc-number">7.</span> <span class="toc-text">笔记：《javascript: the good parts》</span></a></li></ol>
 		
 		</div>
 		
@@ -131,6 +131,10 @@ function foo(){} 与 var foo = function(){} 的区别
 <p><strong>解答</strong><br>JS对象转换成为JSON:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.stringify(object);</span><br></pre></td></tr></table></figure></p>
 <p>JSON对象解析:<br>jQuery:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = $.parseJSON(json_data);</span><br></pre></td></tr></table></figure></p>
 <p>node:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.parse(json_data);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="笔记：《javascript:_the_good_parts》">笔记：《javascript: the good parts》</h1><blockquote>
+<p><strong>笔记</strong><br>1.<code>js
+/*   */</code> 注解的不安全性，导致作者选择只使用／／。</p>
 </blockquote>
   
 	</div>
@@ -198,7 +202,7 @@ function foo(){} 与 var foo = function(){} 的区别
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#javascript_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">javascript 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#function_foo(){}_与_var_foo_=_function(){}_的区别"><span class="toc-number">2.</span> <span class="toc-text">function foo(){} 与 var foo = function(){} 的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#去除换行_and_所有空格"><span class="toc-number">3.</span> <span class="toc-text">去除换行 and 所有空格</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#equals方法和“==”的区别"><span class="toc-number">4.</span> <span class="toc-text">equals方法和“==”的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#js中JSON为何不能push"><span class="toc-number">5.</span> <span class="toc-text">js中JSON为何不能push</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSON与JS对象的相互转换"><span class="toc-number">6.</span> <span class="toc-text">JSON与JS对象的相互转换</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#javascript_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">javascript 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#function_foo(){}_与_var_foo_=_function(){}_的区别"><span class="toc-number">2.</span> <span class="toc-text">function foo(){} 与 var foo = function(){} 的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#去除换行_and_所有空格"><span class="toc-number">3.</span> <span class="toc-text">去除换行 and 所有空格</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#equals方法和“==”的区别"><span class="toc-number">4.</span> <span class="toc-text">equals方法和“==”的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#js中JSON为何不能push"><span class="toc-number">5.</span> <span class="toc-text">js中JSON为何不能push</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JSON与JS对象的相互转换"><span class="toc-number">6.</span> <span class="toc-text">JSON与JS对象的相互转换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#笔记：《javascript:_the_good_parts》"><span class="toc-number">7.</span> <span class="toc-text">笔记：《javascript: the good parts》</span></a></li></ol>
  
   </div>
 
