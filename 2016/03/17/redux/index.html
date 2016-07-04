@@ -1,0 +1,636 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>redux 学习笔记 | MaiZ的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Zack Leonardo">
+    
+
+    <meta name="keywords" content="redux">
+    <meta name="description" content="Redux 学习笔记Redux 三个基本原则:单一数据源
+
+整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。
+
+State 是只读的
+
+惟一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象。
+
+使用纯函数来执行修改
+
+为了描述 action 如何改变 state t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redux 学习笔记">
+<meta property="og:url" content="http://yoursite.com/2016/03/17/redux/index.html">
+<meta property="og:site_name" content="MaiZ的博客">
+<meta property="og:description" content="Redux 学习笔记Redux 三个基本原则:单一数据源
+
+整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。
+
+State 是只读的
+
+惟一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象。
+
+使用纯函数来执行修改
+
+为了描述 action 如何改变 state t">
+<meta property="og:updated_time" content="2016-04-07T04:24:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="redux 学习笔记">
+<meta name="twitter:description" content="Redux 学习笔记Redux 三个基本原则:单一数据源
+
+整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。
+
+State 是只读的
+
+惟一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象。
+
+使用纯函数来执行修改
+
+为了描述 action 如何改变 state t">
+
+    
+    <link rel="alternative" href="/atom.xml" title="MaiZ的博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="MaiZ的博客" title="MaiZ的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="MaiZ的博客">MaiZ的博客</a></h1>
+				<h2 class="blog-motto">Zack Leonardo</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">博客</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/17/redux/" title="redux 学习笔记" itemprop="url">redux 学习笔记</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Zack Leonardo" target="_blank" itemprop="author">Zack Leonardo</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-17T02:22:20.000Z" itemprop="datePublished"> 发表于 2016-03-17</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Redux_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">Redux 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redux_三个基本原则:"><span class="toc-number">2.</span> <span class="toc-text">Redux 三个基本原则:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#是将每个_action_type_定义为_string_常量"><span class="toc-number">3.</span> <span class="toc-text">是将每个 action type 定义为 string 常量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#另一个约定俗成的做法，通过创建函数生成_action_对象，而不是在你分发的时候内联生成它们。"><span class="toc-number">4.</span> <span class="toc-text">另一个约定俗成的做法，通过创建函数生成 action 对象，而不是在你分发的时候内联生成它们。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#生成_Action_Creators"><span class="toc-number">5.</span> <span class="toc-text">生成 Action Creators</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#应该尽量减少在_action_中传递的数据。"><span class="toc-number">6.</span> <span class="toc-text">应该尽量减少在 action 中传递的数据。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redux_中的_action_创建函数是_纯函数，它没有任何副作用，只是返回_action_对象而已"><span class="toc-number">7.</span> <span class="toc-text">Redux 中的 action 创建函数是 纯函数，它没有任何副作用，只是返回 action 对象而已</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设计_State_结构"><span class="toc-number">8.</span> <span class="toc-text">设计 State 结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#保持_reducer_纯净非常重要"><span class="toc-number">9.</span> <span class="toc-text">保持 reducer 纯净非常重要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#reducer_合成，它是开发_Redux_应用最基础的模式。"><span class="toc-number">10.</span> <span class="toc-text">reducer 合成，它是开发 Redux 应用最基础的模式。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Store"><span class="toc-number">11.</span> <span class="toc-text">Store</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="Redux_学习笔记">Redux 学习笔记</h1><h1 id="Redux_三个基本原则:">Redux 三个基本原则:</h1><p>单一数据源</p>
+<blockquote>
+<p>整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。</p>
+</blockquote>
+<p>State 是只读的</p>
+<blockquote>
+<p>惟一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象。</p>
+</blockquote>
+<p>使用纯函数来执行修改</p>
+<blockquote>
+<p>为了描述 action 如何改变 state tree ，你需要编写 reducers。Reducer 只是一些纯函数，它接收先前的 state 和 action，并返回新的 state。</p>
+</blockquote>
+<h1 id="是将每个_action_type_定义为_string_常量">是将每个 action type 定义为 string 常量</h1><p>人们通常声称常量不是必要的。对于小项目也许正确。 对于大的项目，将 action types 定义为常量有如下好处：</p>
+<blockquote>
+<p>帮助维护命名一致性，因为所有的 action type 汇总在同一位置。<br>有时，在开发一个新功能之前你想看到所有现存的 actions 。而你的团队里可能已经有人添加了你所需要的action，而你并不知道。<br>Action types 列表在 Pull Request 中能查到所有添加，删除，修改的记录。这能帮助团队中的所有人及时追踪新功能的范围与实现。<br>如果你在导入一个 Action 常量的时候拼写错误，你会得到 undefined 。当你纳闷 action 被分发出去而什么也没发生的时候，一个拼写错误更容易被发现。<br>你的项目的约定取决与你自己。开始时，可能用的是 inline string，之后转为常量，也许之后将他们归为一个独立文件。</p>
+</blockquote>
+<h1 id="另一个约定俗成的做法，通过创建函数生成_action_对象，而不是在你分发的时候内联生成它们。">另一个约定俗成的做法，通过创建函数生成 action 对象，而不是在你分发的时候内联生成它们。</h1><p>例如，比起使用对象文字调用 dispatch ：</p>
+<blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// somewhere in an event handler</span></span><br><span class="line">dispatch(&#123;</span><br><span class="line">  type: <span class="string">'ADD_TODO'</span>,</span><br><span class="line">  text: <span class="string">'Use Redux'</span></span><br><span class="line">&#125;);</span><br><span class="line">你其实可以在单独的文件中写一个 action creator ，然后从 component 里导入：</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">actionCreators.js</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: <span class="string">'ADD_TODO'</span>,</span><br><span class="line">    text</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">AddTodo.js</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; addTodo &#125; <span class="keyword">from</span> <span class="string">'./actionCreators'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// event handler 里的某处</span></span><br><span class="line">dispatch(addTodo(<span class="string">'Use Redux'</span>))</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>我们不用担心去每个添加 todo 的地方看一看，以确认他们有了这个检查 Action creator 让你可以解耦额外的分发 action 逻辑与实际发送这些 action 的 components 。当你有大量开发工作且需求经常变更的时候，这种方法十分简便易用。</p>
+<h1 id="生成_Action_Creators">生成 Action Creators</h1><p>写简单的 action creator 很容易容易让人厌烦，且往往最终生成多余的样板代码,你可以写一个用于生成 action creator 的函数.</p>
+<h1 id="应该尽量减少在_action_中传递的数据。">应该尽量减少在 action 中传递的数据。</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  type: COMPLETE_TODO,</span><br><span class="line">  index: <span class="number">5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>比如上面的例子，传递 index 就比把整个任务对象传过去要好。</p>
+<h1 id="Redux_中的_action_创建函数是_纯函数，它没有任何副作用，只是返回_action_对象而已">Redux 中的 action 创建函数是 纯函数，它没有任何副作用，只是返回 action 对象而已</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: ADD_TODO,</span><br><span class="line">    text</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="设计_State_结构">设计 State 结构</h1><p>通常，这个 state 树还需要存放其它一些数据，例如 UI 相关的 state。这样做没问题，但尽量把这些数据与 UI 相关的 state 分开。</p>
+<p>开发复杂的应用时，不可避免会有一些数据相互引用。建议你尽可能地把 state 范式化，不存在嵌套。把所有数据放到一个对象里，每个数据以 ID 为主键，不同数据相互引用时通过 ID 来查找。把应用的 state 想像成数据库。这种方法在 normalizr 文档里有详细阐述。例如，实际开发中，在 state 里同时存放 todosById: { id -&gt; todo } 和 todos: array<id> 是比较好的方式，本文中为了保持示例简单没有这样处理。</id></p>
+<h1 id="保持_reducer_纯净非常重要">保持 reducer 纯净非常重要</h1><p>永远不要在 reducer 里做这些操作：</p>
+<blockquote>
+<p>修改传入参数；<br>执行有副作用的操作，如 API 请求和路由跳转；<br>调用非纯函数，如 Date.now() 或 Math.random()</p>
+</blockquote>
+<p>在高级篇里会介绍如何执行有副作用的操作。现在只需要谨记 reducer 一定要保持纯净。只要传入参数一样，返回必须一样。没有特殊情况、没有副作用，没有 API 请求、没有修改参数，单纯执行计算。</p>
+<h1 id="reducer_合成，它是开发_Redux_应用最基础的模式。">reducer 合成，它是开发 Redux 应用最基础的模式。</h1><p>注意每个 reducer 只负责管理全局 state 中它负责的一部分。每个 reducer 的 state 参数都不同，分别对应它管理的那部分 state 数据。就可以把 reducer 拆分成独立文件来分别处理不同的数据域了。<br>Redux 提供了 combineReducers() 工具类来做上面做的事情，这样就能消灭一些样板代码了。</p>
+<h1 id="Store">Store</h1><p>使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。<br>Store 就是把它们联系到一起的对象。Store 有以下职责：</p>
+<blockquote>
+<p>维持应用的 state；<br>提供 getState() 方法获取 state；<br>提供 dispatch(action) 方法更新 state；<br>通过 subscribe(listener) 注册监听器。</p>
+</blockquote>
+<p>再次强调一下 Redux 应用只有一个单一的 store。当需要拆分处理数据的逻辑时，使用 reducer 组合 而不是创建多个 store。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Note/">Note</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/redux/">redux</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/03/17/redux/" data-title="redux 学习笔记 | MaiZ的博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/03/17/Pi/" title="Pi 学习笔记">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Pi 学习笔记</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/01/04/node-note/"  title="node学习笔记">
+ <strong>下一篇：</strong><br/> 
+ <span>node学习笔记
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/03/17/redux/" data-title="redux 学习笔记" data-url="http://yoursite.com/2016/03/17/redux/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Redux_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">Redux 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redux_三个基本原则:"><span class="toc-number">2.</span> <span class="toc-text">Redux 三个基本原则:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#是将每个_action_type_定义为_string_常量"><span class="toc-number">3.</span> <span class="toc-text">是将每个 action type 定义为 string 常量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#另一个约定俗成的做法，通过创建函数生成_action_对象，而不是在你分发的时候内联生成它们。"><span class="toc-number">4.</span> <span class="toc-text">另一个约定俗成的做法，通过创建函数生成 action 对象，而不是在你分发的时候内联生成它们。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#生成_Action_Creators"><span class="toc-number">5.</span> <span class="toc-text">生成 Action Creators</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#应该尽量减少在_action_中传递的数据。"><span class="toc-number">6.</span> <span class="toc-text">应该尽量减少在 action 中传递的数据。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Redux_中的_action_创建函数是_纯函数，它没有任何副作用，只是返回_action_对象而已"><span class="toc-number">7.</span> <span class="toc-text">Redux 中的 action 创建函数是 纯函数，它没有任何副作用，只是返回 action 对象而已</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设计_State_结构"><span class="toc-number">8.</span> <span class="toc-text">设计 State 结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#保持_reducer_纯净非常重要"><span class="toc-number">9.</span> <span class="toc-text">保持 reducer 纯净非常重要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#reducer_合成，它是开发_Redux_应用最基础的模式。"><span class="toc-number">10.</span> <span class="toc-text">reducer 合成，它是开发 Redux 应用最基础的模式。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Store"><span class="toc-number">11.</span> <span class="toc-text">Store</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="ZackLeonardo" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Blog/" title="Blog">Blog<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Meteor/" title="Meteor">Meteor<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/" title="Note">Note<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/blog/" title="blog">blog<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/node/" title="node">node<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/react/" title="react">react<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/redux/" title="redux">redux<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/react-native/" title="react-native">react-native<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/npm/" title="npm">npm<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/node-meteor/" title="node, meteor">node, meteor<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/idea/" title="idea">idea<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/express/" title="express">express<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://facebook.github.io/react-native/" target="_blank" title="react-native官网">react-native官网</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Zack Leonardo in ISCAS. <br/>
+			开始写博客，虽然忙，日积月累嘛.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/ZackLeonardo" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:maiz9088@icloud.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Zack Leonardo">Zack Leonardo</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"maiz"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe6d1f421bbc9962127a50488f9ed37d1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256729001'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1256729001' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

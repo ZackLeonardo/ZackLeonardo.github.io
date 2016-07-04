@@ -4,26 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>express学习笔记 | MaiZ的博客</title>
+    <title>Pi 学习笔记 | MaiZ的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zack Leonardo">
     
 
-    <meta name="keywords" content="Node, express">
-    <meta name="description" content="node-express 学习笔记这篇笔记记录 Zack Leonardo 在学习node-express中的笔记记录。
-ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= variable_name %&amp;gt;输出方式，字符串输出时默认经过escape转义编码。 当我们想要输出一些动态生成的HTML标签时可使用&amp;lt;%- variable_nam %&amp;g">
+    
+    <meta name="description" content="Pi 学习笔记系统安装:参照官网。
+更新软件源:树莓派提供镜像列表：http://www.raspbian.org/RaspbianMirrors
+
+＃nano /etc/apt/sources.list添加：deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main contrib non-free
+#apt-get update">
 <meta property="og:type" content="article">
-<meta property="og:title" content="express学习笔记">
-<meta property="og:url" content="http://yoursite.com/2015/12/21/express/index.html">
+<meta property="og:title" content="Pi 学习笔记">
+<meta property="og:url" content="http://yoursite.com/2016/03/17/Pi/index.html">
 <meta property="og:site_name" content="MaiZ的博客">
-<meta property="og:description" content="node-express 学习笔记这篇笔记记录 Zack Leonardo 在学习node-express中的笔记记录。
-ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= variable_name %&amp;gt;输出方式，字符串输出时默认经过escape转义编码。 当我们想要输出一些动态生成的HTML标签时可使用&amp;lt;%- variable_nam %&amp;g">
-<meta property="og:updated_time" content="2015-12-22T08:57:03.000Z">
+<meta property="og:description" content="Pi 学习笔记系统安装:参照官网。
+更新软件源:树莓派提供镜像列表：http://www.raspbian.org/RaspbianMirrors
+
+＃nano /etc/apt/sources.list添加：deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main contrib non-free
+#apt-get update">
+<meta property="og:updated_time" content="2016-04-12T14:49:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="express学习笔记">
-<meta name="twitter:description" content="node-express 学习笔记这篇笔记记录 Zack Leonardo 在学习node-express中的笔记记录。
-ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= variable_name %&amp;gt;输出方式，字符串输出时默认经过escape转义编码。 当我们想要输出一些动态生成的HTML标签时可使用&amp;lt;%- variable_nam %&amp;g">
+<meta name="twitter:title" content="Pi 学习笔记">
+<meta name="twitter:description" content="Pi 学习笔记系统安装:参照官网。
+更新软件源:树莓派提供镜像列表：http://www.raspbian.org/RaspbianMirrors
+
+＃nano /etc/apt/sources.list添加：deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main contrib non-free
+#apt-get update">
 
     
     <link rel="alternative" href="/atom.xml" title="MaiZ的博客" type="application/atom+xml">
@@ -83,14 +92,14 @@ ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= va
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/12/21/express/" title="express学习笔记" itemprop="url">express学习笔记</a>
+      <a href="/2016/03/17/Pi/" title="Pi 学习笔记" itemprop="url">Pi 学习笔记</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zack Leonardo" target="_blank" itemprop="author">Zack Leonardo</a>
 		
   <p class="article-time">
-    <time datetime="2015-12-21T06:37:16.000Z" itemprop="datePublished"> 发表于 2015-12-21</time>
+    <time datetime="2016-03-17T02:22:20.000Z" itemprop="datePublished"> 发表于 2016-03-17</time>
     
   </p>
 </header>
@@ -99,41 +108,71 @@ ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= va
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#node-express_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">node-express 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ejs–报错_“XXX_is_not_defined”"><span class="toc-number">2.</span> <span class="toc-text">ejs–报错 “XXX is not defined”</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ejs–简单实例"><span class="toc-number">3.</span> <span class="toc-text">ejs–简单实例</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Pi_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">Pi 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统安装:"><span class="toc-number">2.</span> <span class="toc-text">系统安装:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更新软件源:"><span class="toc-number">3.</span> <span class="toc-text">更新软件源:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装VNC"><span class="toc-number">4.</span> <span class="toc-text">安装VNC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动root账号"><span class="toc-number">5.</span> <span class="toc-text">启动root账号</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sd卡容量扩容"><span class="toc-number">6.</span> <span class="toc-text">sd卡容量扩容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mjpg-streamer摄像头"><span class="toc-number">7.</span> <span class="toc-text">mjpg-streamer摄像头</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="node-express_学习笔记">node-express 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习node-express中的笔记记录。</p>
-<h1 id="ejs–报错_“XXX_is_not_defined”">ejs–报错 “XXX is not defined”</h1><p>使用EJS模板变量值使用&lt;%= variable_name %&gt;输出方式，字符串输出时默认经过escape转义编码。 当我们想要输出一些动态生成的HTML标签时可使用&lt;%- variable_nam %&gt;输出方式，这种方式不会被escape转义编码。</p>
+		<h1 id="Pi_学习笔记">Pi 学习笔记</h1><h1 id="系统安装:">系统安装:</h1><p>参照官网。</p>
+<h1 id="更新软件源:">更新软件源:</h1><p>树莓派提供镜像列表：<a href="http://www.raspbian.org/RaspbianMirrors" target="_blank" rel="external">http://www.raspbian.org/RaspbianMirrors</a></p>
 <blockquote>
-<p><strong>解决:</strong></p>
-<p>&lt;%- XXX %&gt; 改为 &lt;%- locals.XXX %&gt;</p>
+<p>＃nano /etc/apt/sources.list<br>添加：deb <a href="http://mirrors.ustc.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free</p>
+<p>#apt-get update</p>
 </blockquote>
-<h1 id="ejs–简单实例">ejs–简单实例</h1><p>使用ejs的好处在于可以后台数据动态配置前端页面，写了一个简单例子如下：</p>
+<h1 id="安装VNC">安装VNC</h1><p>远程桌面控制</p>
+<p>安装：</p>
 <blockquote>
-<p><strong>例子：</strong></p>
-<p>ejs定义模版长什么样<br>example.ejs:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;<span class="xml"><span class="tag">&lt;<span class="title">%=</span> <span class="attribute">title</span> %&gt;</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">%</span> <span class="attribute">for</span>(<span class="attribute">var</span> <span class="attribute">i</span>=<span class="value">0;</span> <span class="attribute">i</span>&lt;<span class="attribute">supplies.length</span>; <span class="attribute">i</span>++) &#123; %&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">'supplies/&lt;%= supplies[i] %&gt;'</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">%=</span> <span class="attribute">supplies</span>[<span class="attribute">i</span>] %&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">%</span> &#125; %&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>#sudo apt-get install tightvncserver</p>
+<p>#tightvncserver</p>
 </blockquote>
-<p>&gt;</p>
+<p>修正Raspbian下TightVNC的bug,当 TightVNC Server 安装时，该文件没有被正确给用户 pi 赋予权限，可能会导致客户端无法再次连接，输入上边命令可以给该文件指定所有用户为 pi:</p>
 <blockquote>
-<p>下面使用ejs模版<br>example.html:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>ejs test<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"js/ejs_production.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"js/jquery-2.1.4.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"testEJS"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">      <span class="keyword">var</span> data = &#123;	title:	<span class="string">'Cleaning Supplies'</span>,</span><br><span class="line">                 supplies:	[<span class="string">'mop'</span>, <span class="string">'broom'</span>, <span class="string">'duster'</span>]	&#125;;</span><br><span class="line">      <span class="keyword">var</span> html = <span class="keyword">new</span> EJS(&#123;url: <span class="string">'example.ejs'</span>&#125;).render(data);</span><br><span class="line">      $(<span class="string">"#testEJS"</span>).html(html);<span class="comment">//</span></span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
-<p>通过ejs.render(data),渲染出界面。</p>
+<p>#sudo chown pi /home/pi/.Xauthority</p>
+</blockquote>
+<p>创建初始化文件，让 tightvnc server 随系统启动自动运行:</p>
+<blockquote>
+<p>#sudo nano /etc/init.d/tightvnc<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">### BEGIN INIT INFO</span><br><span class="line"># Provides: tightvncserver</span><br><span class="line"># Required-Start:</span><br><span class="line"># Required-Stop:</span><br><span class="line"># Default-Start: 2 3 4 5</span><br><span class="line"># Default-Stop: 0 1 6</span><br><span class="line"># Short-Description: start vnc server</span><br><span class="line"># Description:</span><br><span class="line">### END INIT INFO</span><br><span class="line">case "$1" in</span><br><span class="line">start)</span><br><span class="line">su pi -c 'vncserver :1 -geometry 1360x768 -depth 24 -pixelformat rgb888:'</span><br><span class="line">echo "VNC server Started"</span><br><span class="line">;;</span><br><span class="line">stop)</span><br><span class="line">pkill Xtightvnc</span><br><span class="line">echo "VNC server Terminated"</span><br><span class="line">;;</span><br><span class="line">*)</span><br><span class="line">echo "Usage: /etc/init.d/tightvnc &#123;start|stop&#125;"</span><br><span class="line">exit 1</span><br><span class="line">;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure></p>
+<p>#sudo chmod 755 /etc/init.d/tightvnc</p>
+</blockquote>
+<p>测试一下：</p>
+<blockquote>
+<p>#sudo /etc/init.d/tightvnc stop</p>
+<p>#sudo /etc/init.d/tightvnc start</p>
+</blockquote>
+<p>更新一下 rc.d 文件让 tightvnc 脚本生效</p>
+<blockquote>
+<p>#sudo update-rc.d tightvnc defaults</p>
+</blockquote>
+<p>重启树莓派即可。</p>
+<h1 id="启动root账号">启动root账号</h1><blockquote>
+<p>sudo passwd root<br>sudo passwd –unlock root<br>由于openssh默认不再允许root用户以密码方式ssh登录，更改：<br>sudo nano /etc/ssh/sshd_config<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="sd卡容量扩容">sd卡容量扩容</h1><p>刚用Win32DiskImager做好的sd卡可能只有4G，需要把剩下的空间扩容进来，linux下gparted可以实现，虽然有windows版本，但是不支持ext3等格式，还是要在linux下扩容。</p>
+<h1 id="mjpg-streamer摄像头">mjpg-streamer摄像头</h1><p>使用mjpg-streamer做视屏录制和监控。</p>
+<p>安装依赖包</p>
+<blockquote>
+<p>sudo apt-get install libv4l-dev libjpeg8-dev imagemagick</p>
+</blockquote>
+<p>编译安装mjpg-streamer(省略下载解压，步骤简单)</p>
+<blockquote>
+<p>make USE_LIB4VL2=true clean all</p>
+</blockquote>
+<p>执行mjpg-streamer</p>
+<blockquote>
+<p>sudo ./mjpg-streamer -i “./input_uvc.so -d /dev/video0 -r 480*320 -f 12 -y” -o “./output_http.so -p 8090 -w ./www”</p>
+</blockquote>
+<p>浏览器打开</p>
+<blockquote>
+<p>ip:8090</p>
+</blockquote>
+<p>说明</p>
+<blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-d specifies the device</span><br><span class="line">-r is resolution</span><br><span class="line">-f is frame rate, <span class="keyword">in</span> number <span class="keyword">of</span> frame per second</span><br><span class="line">-y specifies YUYV format, rather than MJPEG format.</span><br><span class="line"></span><br><span class="line">Output modifiers:</span><br><span class="line">-p is port</span><br><span class="line">-w is web serving directory.</span><br></pre></td></tr></table></figure>
 </blockquote>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Note/">Note</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/express/">express</a><a href="/tags/node/">node</a>
-  </div>
 
 </div>
 
@@ -141,7 +180,7 @@ ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= va
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/12/21/express/" data-title="express学习笔记 | MaiZ的博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/03/17/Pi/" data-title="Pi 学习笔记 | MaiZ的博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -155,18 +194,18 @@ ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= va
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/12/22/intellij-idea/" title="intellij_idea笔记">
+ <a href="/2016/06/13/meteorJourney/" title="meteor之旅">
   <strong>上一篇：</strong><br/>
   <span>
-  intellij_idea笔记</span>
+  meteor之旅</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/11/16/css-note/"  title="css-note css学习笔记">
+<a href="/2016/03/17/redux/"  title="redux 学习笔记">
  <strong>下一篇：</strong><br/> 
- <span>css-note css学习笔记
+ <span>redux 学习笔记
 </span>
 </a>
 </div>
@@ -175,7 +214,7 @@ ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= va
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/12/21/express/" data-title="express学习笔记" data-url="http://yoursite.com/2015/12/21/express/"></div>
+	<div class="ds-thread" data-thread-key="2016/03/17/Pi/" data-title="Pi 学习笔记" data-url="http://yoursite.com/2016/03/17/Pi/"></div>
 </section>
 
 
@@ -185,7 +224,7 @@ ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= va
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#node-express_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">node-express 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ejs–报错_“XXX_is_not_defined”"><span class="toc-number">2.</span> <span class="toc-text">ejs–报错 “XXX is not defined”</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ejs–简单实例"><span class="toc-number">3.</span> <span class="toc-text">ejs–简单实例</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Pi_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">Pi 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统安装:"><span class="toc-number">2.</span> <span class="toc-text">系统安装:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更新软件源:"><span class="toc-number">3.</span> <span class="toc-text">更新软件源:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装VNC"><span class="toc-number">4.</span> <span class="toc-text">安装VNC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#启动root账号"><span class="toc-number">5.</span> <span class="toc-text">启动root账号</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sd卡容量扩容"><span class="toc-number">6.</span> <span class="toc-text">sd卡容量扩容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mjpg-streamer摄像头"><span class="toc-number">7.</span> <span class="toc-text">mjpg-streamer摄像头</span></a></li></ol>
  
   </div>
 

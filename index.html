@@ -81,6 +81,280 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2016/06/13/meteorJourney/" title="meteor之旅" itemprop="url">meteor之旅</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Zack Leonardo" target="_blank" itemprop="author">Zack Leonardo</a>
+		
+  <p class="article-time">
+    <time datetime="2016-06-13T02:21:29.000Z" itemprop="datePublished"> 发表于 2016-06-13</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="meteor之旅">meteor之旅</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习meteor中的笔记记录。<br>首先官网上简单实用的教程(<a href="https://www.meteor.com/tutorials/react/creating-an-app)已经实现了一下，算是初步了解，在此基础上进行创造。" target="_blank" rel="external">https://www.meteor.com/tutorials/react/creating-an-app)已经实现了一下，算是初步了解，在此基础上进行创造。</a></p>
+<p>首先看看如何在此基础上加一个带有视频的list，采用videojs。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Meteor/">Meteor</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/node-meteor/">node, meteor</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/06/13/meteorJourney/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/06/13/meteorJourney/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/17/Pi/" title="Pi 学习笔记" itemprop="url">Pi 学习笔记</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Zack Leonardo" target="_blank" itemprop="author">Zack Leonardo</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-17T02:22:20.000Z" itemprop="datePublished"> 发表于 2016-03-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Pi_学习笔记">Pi 学习笔记</h1><h1 id="系统安装:">系统安装:</h1><p>参照官网。</p>
+<h1 id="更新软件源:">更新软件源:</h1><p>树莓派提供镜像列表：<a href="http://www.raspbian.org/RaspbianMirrors" target="_blank" rel="external">http://www.raspbian.org/RaspbianMirrors</a></p>
+<blockquote>
+<p>＃nano /etc/apt/sources.list<br>添加：deb <a href="http://mirrors.ustc.edu.cn/raspbian/raspbian/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a> wheezy main contrib non-free</p>
+<p>#apt-get update</p>
+</blockquote>
+<h1 id="安装VNC">安装VNC</h1><p>远程桌面控制</p>
+<p>安装：</p>
+<blockquote>
+<p>#sudo apt-get install tightvncserver</p>
+<p>#tightvncserver</p>
+</blockquote>
+<p>修正Raspbian下TightVNC的bug,当 TightVNC Server 安装时，该文件没有被正确给用户 pi 赋予权限，可能会导致客户端无法再次连接，输入上边命令可以给该文件指定所有用户为 pi:</p>
+<blockquote>
+<p>#sudo chown pi /home/pi/.Xauthority</p>
+</blockquote>
+<p>创建初始化文件，让 tightvnc server 随系统启动自动运行:</p>
+<blockquote>
+<p>#sudo nano /etc/init.d/tightvnc<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">### BEGIN INIT INFO</span><br><span class="line"># Provides: tightvncserver</span><br><span class="line"># Required-Start:</span><br><span class="line"># Required-Stop:</span><br><span class="line"># Default-Start: 2 3 4 5</span><br><span class="line"># Default-Stop: 0 1 6</span><br><span class="line"># Short-Description: start vnc server</span><br><span class="line"># Description:</span><br><span class="line">### END INIT INFO</span><br><span class="line">case "$1" in</span><br><span class="line">start)</span><br><span class="line">su pi -c 'vncserver :1 -geometry 1360x768 -depth 24 -pixelformat rgb888:'</span><br><span class="line">echo "VNC server Started"</span><br><span class="line">;;</span><br><span class="line">stop)</span><br><span class="line">pkill Xtightvnc</span><br><span class="line">echo "VNC server Terminated"</span><br><span class="line">;;</span><br><span class="line">*)</span><br><span class="line">echo "Usage: /etc/init.d/tightvnc &#123;start|stop&#125;"</span><br><span class="line">exit 1</span><br><span class="line">;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure></p>
+<p>#sudo chmod 755 /etc/init.d/tightvnc</p>
+</blockquote>
+<p>测试一下：</p>
+<blockquote>
+<p>#sudo /etc/init.d/tightvnc stop</p>
+<p>#sudo /etc/init.d/tightvnc start</p>
+</blockquote>
+<p>更新一下 rc.d 文件让 tightvnc 脚本生效</p>
+<blockquote>
+<p>#sudo update-rc.d tightvnc defaults</p>
+</blockquote>
+<p>重启树莓派即可。</p>
+<h1 id="启动root账号">启动root账号</h1><blockquote>
+<p>sudo passwd root<br>sudo passwd –unlock root<br>由于openssh默认不再允许root用户以密码方式ssh登录，更改：<br>sudo nano /etc/ssh/sshd_config<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="sd卡容量扩容">sd卡容量扩容</h1><p>刚用Win32DiskImager做好的sd卡可能只有4G，需要把剩下的空间扩容进来，linux下gparted可以实现，虽然有windows版本，但是不支持ext3等格式，还是要在linux下扩容。</p>
+<h1 id="mjpg-streamer摄像头">mjpg-streamer摄像头</h1><p>使用mjpg-streamer做视屏录制和监控。</p>
+<p>安装依赖包</p>
+<blockquote>
+<p>sudo apt-get install libv4l-dev libjpeg8-dev imagemagick</p>
+</blockquote>
+<p>编译安装mjpg-streamer(省略下载解压，步骤简单)</p>
+<blockquote>
+<p>make USE_LIB4VL2=true clean all</p>
+</blockquote>
+<p>执行mjpg-streamer</p>
+<blockquote>
+<p>sudo ./mjpg-streamer -i “./input_uvc.so -d /dev/video0 -r 480*320 -f 12 -y” -o “./output_http.so -p 8090 -w ./www”</p>
+</blockquote>
+<p>浏览器打开</p>
+<blockquote>
+<p>ip:8090</p>
+</blockquote>
+<p>说明</p>
+<blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-d specifies the device</span><br><span class="line">-r is resolution</span><br><span class="line">-f is frame rate, <span class="keyword">in</span> number <span class="keyword">of</span> frame per second</span><br><span class="line">-y specifies YUYV format, rather than MJPEG format.</span><br><span class="line"></span><br><span class="line">Output modifiers:</span><br><span class="line">-p is port</span><br><span class="line">-w is web serving directory.</span><br></pre></td></tr></table></figure>
+</blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/03/17/Pi/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/03/17/Pi/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/17/redux/" title="redux 学习笔记" itemprop="url">redux 学习笔记</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Zack Leonardo" target="_blank" itemprop="author">Zack Leonardo</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-17T02:22:20.000Z" itemprop="datePublished"> 发表于 2016-03-17</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Redux_学习笔记">Redux 学习笔记</h1><h1 id="Redux_三个基本原则:">Redux 三个基本原则:</h1><p>单一数据源</p>
+<blockquote>
+<p>整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中。</p>
+</blockquote>
+<p>State 是只读的</p>
+<blockquote>
+<p>惟一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象。</p>
+</blockquote>
+<p>使用纯函数来执行修改</p>
+<blockquote>
+<p>为了描述 action 如何改变 state tree ，你需要编写 reducers。Reducer 只是一些纯函数，它接收先前的 state 和 action，并返回新的 state。</p>
+</blockquote>
+<h1 id="是将每个_action_type_定义为_string_常量">是将每个 action type 定义为 string 常量</h1><p>人们通常声称常量不是必要的。对于小项目也许正确。 对于大的项目，将 action types 定义为常量有如下好处：</p>
+<blockquote>
+<p>帮助维护命名一致性，因为所有的 action type 汇总在同一位置。<br>有时，在开发一个新功能之前你想看到所有现存的 actions 。而你的团队里可能已经有人添加了你所需要的action，而你并不知道。<br>Action types 列表在 Pull Request 中能查到所有添加，删除，修改的记录。这能帮助团队中的所有人及时追踪新功能的范围与实现。<br>如果你在导入一个 Action 常量的时候拼写错误，你会得到 undefined 。当你纳闷 action 被分发出去而什么也没发生的时候，一个拼写错误更容易被发现。<br>你的项目的约定取决与你自己。开始时，可能用的是 inline string，之后转为常量，也许之后将他们归为一个独立文件。</p>
+</blockquote>
+<h1 id="另一个约定俗成的做法，通过创建函数生成_action_对象，而不是在你分发的时候内联生成它们。">另一个约定俗成的做法，通过创建函数生成 action 对象，而不是在你分发的时候内联生成它们。</h1><p>例如，比起使用对象文字调用 dispatch ：</p>
+<blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// somewhere in an event handler</span></span><br><span class="line">dispatch(&#123;</span><br><span class="line">  type: <span class="string">'ADD_TODO'</span>,</span><br><span class="line">  text: <span class="string">'Use Redux'</span></span><br><span class="line">&#125;);</span><br><span class="line">你其实可以在单独的文件中写一个 action creator ，然后从 component 里导入：</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">actionCreators.js</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: <span class="string">'ADD_TODO'</span>,</span><br><span class="line">    text</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">AddTodo.js</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; addTodo &#125; <span class="keyword">from</span> <span class="string">'./actionCreators'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// event handler 里的某处</span></span><br><span class="line">dispatch(addTodo(<span class="string">'Use Redux'</span>))</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>我们不用担心去每个添加 todo 的地方看一看，以确认他们有了这个检查 Action creator 让你可以解耦额外的分发 action 逻辑与实际发送这些 action 的 components 。当你有大量开发工作且需求经常变更的时候，这种方法十分简便易用。</p>
+<h1 id="生成_Action_Creators">生成 Action Creators</h1><p>写简单的 action creator 很容易容易让人厌烦，且往往最终生成多余的样板代码,你可以写一个用于生成 action creator 的函数.</p>
+<h1 id="应该尽量减少在_action_中传递的数据。">应该尽量减少在 action 中传递的数据。</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  type: COMPLETE_TODO,</span><br><span class="line">  index: <span class="number">5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>比如上面的例子，传递 index 就比把整个任务对象传过去要好。</p>
+<h1 id="Redux_中的_action_创建函数是_纯函数，它没有任何副作用，只是返回_action_对象而已">Redux 中的 action 创建函数是 纯函数，它没有任何副作用，只是返回 action 对象而已</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: ADD_TODO,</span><br><span class="line">    text</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="设计_State_结构">设计 State 结构</h1><p>通常，这个 state 树还需要存放其它一些数据，例如 UI 相关的 state。这样做没问题，但尽量把这些数据与 UI 相关的 state 分开。</p>
+<p>开发复杂的应用时，不可避免会有一些数据相互引用。建议你尽可能地把 state 范式化，不存在嵌套。把所有数据放到一个对象里，每个数据以 ID 为主键，不同数据相互引用时通过 ID 来查找。把应用的 state 想像成数据库。这种方法在 normalizr 文档里有详细阐述。例如，实际开发中，在 state 里同时存放 todosById: { id -&gt; todo } 和 todos: array<id> 是比较好的方式，本文中为了保持示例简单没有这样处理。</id></p>
+<h1 id="保持_reducer_纯净非常重要">保持 reducer 纯净非常重要</h1><p>永远不要在 reducer 里做这些操作：</p>
+<blockquote>
+<p>修改传入参数；<br>执行有副作用的操作，如 API 请求和路由跳转；<br>调用非纯函数，如 Date.now() 或 Math.random()</p>
+</blockquote>
+<p>在高级篇里会介绍如何执行有副作用的操作。现在只需要谨记 reducer 一定要保持纯净。只要传入参数一样，返回必须一样。没有特殊情况、没有副作用，没有 API 请求、没有修改参数，单纯执行计算。</p>
+<h1 id="reducer_合成，它是开发_Redux_应用最基础的模式。">reducer 合成，它是开发 Redux 应用最基础的模式。</h1><p>注意每个 reducer 只负责管理全局 state 中它负责的一部分。每个 reducer 的 state 参数都不同，分别对应它管理的那部分 state 数据。就可以把 reducer 拆分成独立文件来分别处理不同的数据域了。<br>Redux 提供了 combineReducers() 工具类来做上面做的事情，这样就能消灭一些样板代码了。</p>
+<h1 id="Store">Store</h1><p>使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。<br>Store 就是把它们联系到一起的对象。Store 有以下职责：</p>
+<blockquote>
+<p>维持应用的 state；<br>提供 getState() 方法获取 state；<br>提供 dispatch(action) 方法更新 state；<br>通过 subscribe(listener) 注册监听器。</p>
+</blockquote>
+<p>再次强调一下 Redux 应用只有一个单一的 store。当需要拆分处理数据的逻辑时，使用 reducer 组合 而不是创建多个 store。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Note/">Note</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/redux/">redux</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/03/17/redux/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/03/17/redux/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2016/01/04/node-note/" title="node学习笔记" itemprop="url">node学习笔记</a>
   </h1>
   <p class="article-author">By
@@ -404,6 +678,10 @@
 <h1 id="笔记：《javascript:_the_good_parts》">笔记：《javascript: the good parts》</h1><blockquote>
 <p><strong>笔记</strong><br>1.<code>js
 /*   */</code> 注解的不安全性，导致作者选择只使用／／。</p>
+<ol>
+<li>值NaN是一个数值，它表示一个不能产生正常结果的运算结果。不等于任何值，包括它自己。检测用：isNaN()。</li>
+<li>对象通过引用来传递，永远不会被拷贝。</li>
+</ol>
 </blockquote>
 
         
@@ -503,6 +781,11 @@
 </ol>
 </blockquote>
 <h1 id="redux的思想来源，深度好博">redux的思想来源，深度好博</h1><p><a href="https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.7w5j383mb" target="_blank" rel="external">https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.7w5j383mb</a></p>
+<h1 id="state_ES5，ES6初始化问题">state ES5，ES6初始化问题</h1><blockquote>
+<p><strong>方式:</strong><br>ES5<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Video = React.createClass(&#123;</span><br><span class="line">    getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            loopsRemaining: “”,</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>ES6<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Video</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    state = &#123;</span><br><span class="line">        loopsRemaining: <span class="keyword">this</span>.props.maxLoops,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Video</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">            loopsRemaining: <span class="keyword">this</span>.props.maxLoops,</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 
         
         
@@ -664,211 +947,10 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/11/08/react-native-dont-starve-note/" title="React native 开发笔记－－don&#39;t Starve" itemprop="url">React native 开发笔记－－don&#39;t Starve</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Zack Leonardo" target="_blank" itemprop="author">Zack Leonardo</a>
-		
-  <p class="article-time">
-    <time datetime="2015-11-08T06:48:43.000Z" itemprop="datePublished"> 发表于 2015-11-08</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="React_native_开发笔记－－don’t_Starve">React native 开发笔记－－don’t Starve</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习react native，并开发don’t  Starve小程序中遇到的问题以及解决方法和思考。</p>
-<h1 id="Navigator等对布局的影响">Navigator等对布局的影响</h1><p>在使用Navigator时，发现component会从屏幕顶端开始布局，将被navigator遮挡一部分。</p>
-<blockquote>
-<p><strong>解决:</strong></p>
-<ul>
-<li>设置component组件的属性：<br>automaticallyAdjustContentInsets={true}<br>例如：<br><code>&lt;ScrollView
-  automaticallyAdjustContentInsets={true}
-  scrollEventThrottle={200}&gt;</code></li>
-<li>automaticallyAdjustContentInsets：自动调整内容插图</li>
-</ul>
-</blockquote>
-<h1 id="eval—将string转function，可达到动态加载模块或数据的目的">eval—将string转function，可达到动态加载模块或数据的目的</h1><p>有时候希望动态加载数据或者模块。<br>静态：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var MainListItem = require(<span class="string">'./listItem'</span>);</span><br><span class="line">var itemsData = require(<span class="string">'./mainList.json'</span>);</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p><strong>解决:</strong></p>
-<ul>
-<li><p>json数据：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">｛<span class="string">"itemDataLoader"</span>: <span class="string">"require('./roles.json');"</span>,</span><br><span class="line">  <span class="string">"itemInfoPage"</span>: <span class="string">"require('./roleInfo');"</span>｝</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过在程序中：<br>var itemInfo = eval(itemsData.items[i].itemInfoPage);<br>var itemDataLoader = eval(itemsData.items[i].itemDataLoader);<br>可达到动态加载的目的。</p>
-</li>
-</ul>
-</blockquote>
-<h1 id="node_require,_绝对路径／相当路径">node require, 绝对路径／相当路径</h1><blockquote>
-<p><strong>解决:</strong></p>
-<p>相对路径以 . 开始<br>绝对路径以 / 开始</p>
-</blockquote>
-<h1 id="循环语句中嵌入了render类">循环语句中嵌入了render类</h1><p>例如：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  var listObj = new Array();</span><br><span class="line">  <span class="keyword">for</span> (var i = <span class="number">0</span>; i &lt; ingredientsData.ingredients.length; i++) &#123;</span><br><span class="line">    var index = i;</span><br><span class="line">listObj[i] = React.createClass(&#123;</span><br><span class="line">      render: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        <span class="built_in">return</span> (</span><br><span class="line">          &lt;List</span><br><span class="line">            data=&#123;ingredientsData.ingredients[i].ingredient&#125;</span><br><span class="line">            info=&#123;ingredientInfo&#125;</span><br><span class="line">            navigator=&#123;this.props.navigator&#125;</span><br><span class="line">          /&gt;</span><br><span class="line">        );</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>data={ingredientsData.ingredients[i].ingredient}, 通过输出i发现：i始终为数组长度，可能原因分析：此处只是react createClassr的声明，实例化是在调用时候实例化，此时i为数组长度。</li>
-</ul>
-<blockquote>
-<p><strong>解决:</strong></p>
-<ul>
-<li>通过map进行遍历。</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">itemsData.items.map((item,i) =&gt; &#123;</span><br><span class="line">  var itemInfo = <span class="built_in">eval</span>(itemsData.items[i].itemInfoPage);</span><br><span class="line">  var itemDataLoader = <span class="built_in">eval</span>(itemsData.items[i].itemDataLoader);</span><br><span class="line">  listObj[i] = React.createClass(&#123;</span><br><span class="line">    render: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">      <span class="built_in">return</span> (</span><br><span class="line">        &lt;List</span><br><span class="line">           data=&#123;itemDataLoader.items&#125;</span><br><span class="line">           info=&#123;itemInfo&#125;</span><br><span class="line">           navigator=&#123;this.props.navigator&#125;/&gt;</span><br><span class="line">      );</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-<p>可以实现。</p>
-</blockquote>
-<h1 id="全局StyleSheet（global_style），简化且统一。">全局StyleSheet（global style），简化且统一。</h1><p>除了inline styles，可采用全局style，简化样式。</p>
-<blockquote>
-<p><strong>解决:</strong></p>
-<ul>
-<li><p>通过维护一个全局style.js文件：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'use strict'</span>;</span><br><span class="line">var React = require(<span class="string">'react-native'</span>);</span><br><span class="line">var &#123;</span><br><span class="line">  StyleSheet,</span><br><span class="line">&#125; = React;</span><br><span class="line">module.exports = StyleSheet.create(&#123;</span><br><span class="line">	alwaysred: &#123;</span><br><span class="line">	    backgroundColor: <span class="string">'red'</span>,</span><br><span class="line">	    height: <span class="number">100</span>,</span><br><span class="line">	    width: <span class="number">100</span>,</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在component中使用：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var s = require(<span class="string">'./style'</span>);</span><br><span class="line">&lt;View style=&#123;s.alwaysred&#125; &gt;</span><br><span class="line">&lt;/View&gt;</span><br></pre></td></tr></table></figure>
-<p>即可。</p>
-</li>
-</ul>
-</blockquote>
-<h1 id="propTypes属性校验">propTypes属性校验</h1><p>不论是我们自己使用还是发布组件供大家使用，都最好对组件传入的数据进行校验，以确保组件能正常被使用。</p>
-<blockquote>
-<p><strong>解决:</strong></p>
-<ul>
-<li><p>设置propTypes校验属性：<br>React.PropTypes声明了一系列的校验确保我们接收的数据是合法的。如果不合法的数据出现在属性当中，控制台会打印警告信息。下面是不同的校验类型：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">React.createClass(&#123;</span><br><span class="line">  propTypes: &#123;</span><br><span class="line">    // You can <span class="built_in">declare</span> that a prop is a specific JS primitive. By default, these</span><br><span class="line">    // are all optional.</span><br><span class="line">    optionalArray: React.PropTypes.array,</span><br><span class="line">    optionalBool: React.PropTypes.bool,</span><br><span class="line">    optionalFunc: React.PropTypes.func,</span><br><span class="line">    optionalNumber: React.PropTypes.number,</span><br><span class="line">    optionalObject: React.PropTypes.object,</span><br><span class="line">    optionalString: React.PropTypes.string,</span><br><span class="line"></span><br><span class="line">     // Anything that can be rendered: numbers, strings, elements or an array</span><br><span class="line">    // containing these types.</span><br><span class="line">    optionalNode: React.PropTypes.node,</span><br><span class="line"></span><br><span class="line">    // A React element.</span><br><span class="line">    optionalElement: React.PropTypes.element,</span><br><span class="line"></span><br><span class="line">    // You can also <span class="built_in">declare</span> that a prop is an instance of a class. This uses</span><br><span class="line">    // JS instanceof operator.</span><br><span class="line">    optionalMessage: React.PropTypes.instanceOf(Message),</span><br><span class="line"></span><br><span class="line">    // You can ensure that your prop is limited to specific values by treating</span><br><span class="line">    // it as an enum.</span><br><span class="line">    optionalEnum: React.PropTypes.oneOf([<span class="string">'News'</span>, <span class="string">'Photos'</span>]),</span><br><span class="line"></span><br><span class="line">    // An object that could be one of many types</span><br><span class="line">    optionalUnion: React.PropTypes.oneOfType([</span><br><span class="line">      React.PropTypes.string,</span><br><span class="line">      React.PropTypes.number,</span><br><span class="line">      React.PropTypes.instanceOf(Message)</span><br><span class="line">    ]),</span><br><span class="line"></span><br><span class="line">    // An array of a certain <span class="built_in">type</span></span><br><span class="line">    optionalArrayOf: React.PropTypes.arrayOf(React.PropTypes.number),</span><br><span class="line"></span><br><span class="line">    // An object with property values of a certain <span class="built_in">type</span></span><br><span class="line">    optionalObjectOf: React.PropTypes.objectOf(React.PropTypes.number),</span><br><span class="line"></span><br><span class="line">    // An object taking on a particular shape</span><br><span class="line">    optionalObjectWithShape: React.PropTypes.shape(&#123;</span><br><span class="line">      color: React.PropTypes.string,</span><br><span class="line">      fontSize: React.PropTypes.number</span><br><span class="line">    &#125;),</span><br><span class="line"></span><br><span class="line">    // You can chain any of the above with `isRequired` to make sure a warning</span><br><span class="line">    // is shown <span class="keyword">if</span> the prop is not provided.</span><br><span class="line">    requiredFunc: React.PropTypes.func.isRequired,</span><br><span class="line"></span><br><span class="line">    // A value of any data <span class="built_in">type</span></span><br><span class="line">    requiredAny: React.PropTypes.any.isRequired,</span><br><span class="line"></span><br><span class="line">    // You can also specify a custom validator. It should <span class="built_in">return</span> an Error</span><br><span class="line">    // object <span class="keyword">if</span> the validation fails. Don<span class="string">'t `console.warn` or throw, as this</span><br><span class="line">    // won'</span>t work inside `oneOfType`.</span><br><span class="line">    customProp: <span class="keyword">function</span>(props, propName, componentName) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!/matchme/.test(props[propName])) &#123;</span><br><span class="line">        <span class="built_in">return</span> new Error(<span class="string">'Validation failed!'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>完毕。</p>
-</li>
-</ul>
-</blockquote>
 
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Blog/">Blog</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/react-native/">react-native</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/11/08/react-native-dont-starve-note/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/11/08/react-native-dont-starve-note/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/11/08/publishModuleToNpm/" title="发布Node.js模块到NPM社区" itemprop="url">发布Node.js模块到NPM社区</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Zack Leonardo" target="_blank" itemprop="author">Zack Leonardo</a>
-		
-  <p class="article-time">
-    <time datetime="2015-11-08T04:45:53.000Z" itemprop="datePublished"> 发表于 2015-11-08</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>参照：<a href="https://github.com/ZackLeonardo/react-native-sudokuGrid" target="_blank" rel="external">https://github.com/ZackLeonardo/react-native-sudokuGrid</a></p>
-<h1 id="首先，需要一个github帐号托管项目；">首先，需要一个github帐号托管项目；</h1><blockquote>
-<p>默认你已会使用github</p>
-<h2 id="创建repository;">创建repository;</h2><p>接下来我们需要创建module所需的repository，这个repository用来托管我们module的代码，并方便用户报告bug，最重要的是可以让其他开发者向module贡献代码。</p>
-</blockquote>
-<h1 id="进入主题：发布node到npm社区；">进入主题：发布node到npm社区；</h1><blockquote>
-<h2 id="初始化package-json;">初始化package.json;</h2><p>进入项目目录，以test为例：<br><strong>$ cd test</strong><br>创建package.json文件，这个文件包含了module的所有信息，比如名称、版本、描述、依赖、作者、license等:<br><strong>$ npm init</strong><br>系统会提示你输入所需的信息，不想输入的直接输入Enter可以跳过。<br>输入完成之后，系统会要你确认文件的内容是否有误，如果没有问题回车，package.json就创建好了。</p>
-<h2 id="加入对其他module的依赖关系">加入对其他module的依赖关系</h2><p>npm init创建的package.json文件只包含了基本的信息，还需要加入对其他module的依赖关系：<br><strong>“dependencies”: {<br>    “mongodb” : “1.3.19”,<br>}</strong></p>
-<h2 id="整体的文件夹结构如下;">整体的文件夹结构如下;</h2><p>test<br> ├─┬ lib<br> │ └── easy_mongo.js<br> ├─┬ test<br> │ └── all.js<br> ├── .gitignore<br> ├── .npmignore<br> ├── .travis.yml<br> ├── index.js<br> ├── LICENSE<br> ├── makefile<br> ├── package.json<br> ├── README.md<br>各文件作用如下：<br>lib目录下存放业务逻辑文件<br>test目录下存放单元测试用例<br>.npmignore记录哪些文件不需要被发布到npmjs.org<br>.travis.yml是持续集成服务travis的描述文件<br>index.js是入口文件<br>makefile方便我们用make test进行测试<br>README.md是此module的描述和使用方法</p>
-<p>根据需求进行添加和编辑。</p>
-<h2 id="配置用户信息;">配置用户信息;</h2><p>完成了上面的步骤之后，在www.npmjs.org注册一个账号，这个账号会被添加到npm本地的配置中，用来发布module用。<br><strong>$ npm adduser<br>Username: your name<br>Password: your password<br>Email: yourmail</strong><br>如果出现以下错误，可能是npm版本太低，通过sudo npm install -g npm升级一下。</p>
-<p>npm WARN adduser Incorrect username or password<br>npm WARN adduser You can reset your account by visiting:<br>npm WARN adduser<br>npm WARN adduser     <a href="http://admin.npmjs.org/reset" target="_blank" rel="external">http://admin.npmjs.org/reset</a><br>npm WARN adduser<br>npm ERR! Error: forbidden may not mix password_sha and pbkdf2<br>npm ERR! You may need to upgrade your version of npm:<br>npm ERR!   npm install npm -g<br>npm ERR! Note that this may need to be run as root/admin (sudo, etc.)<br>成功之后，npm会把认证信息存储在~/.npmrc中，并且可以通过以下命令查看npm当前使用的用户：</p>
-<p><strong>$ npm whoami</strong><br>以上完成之后，我们终于可以发布自己的module了：</p>
-<h2 id="发布module;">发布module;</h2><p><strong>$ npm publish</strong></p>
-<p>如果使用 cnpm 的注意报错：</p>
-<p>no_perms Private mode enable, only admin can publish this module<br>设置回原本的就可以了：</p>
-<p><strong>npm config set registry <a href="http://registry.npmjs.org" target="_blank" rel="external">http://registry.npmjs.org</a></strong><br><strong>npm包package.json中registory属性一定要填写，每次publish npm时package.json中version版本一定要大于上一次。</strong></p>
-</blockquote>
-<p>done!</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Blog/">Blog</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/npm/">npm</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2015/11/08/publishModuleToNpm/#comments" class="ds-thread-count comments-count-link" data-thread-key="2015/11/08/publishModuleToNpm/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
+  <nav id="page-nav" class="clearfix">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+  </nav>
 
 </div>
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
@@ -897,7 +979,11 @@
 		  
 		
 		  
-			<li><a href="/categories/Note/" title="Note">Note<sup>3</sup></a></li>
+			<li><a href="/categories/Meteor/" title="Meteor">Meteor<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Note/" title="Note">Note<sup>4</sup></a></li>
 		  
 		
 		  
@@ -922,7 +1008,7 @@
 			
 		
 			
-				<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
+				<li><a href="/tags/redux/" title="redux">redux<sup>1</sup></a></li>
 			
 		
 			
@@ -931,6 +1017,10 @@
 		
 			
 				<li><a href="/tags/npm/" title="npm">npm<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/node-meteor/" title="node, meteor">node, meteor<sup>1</sup></a></li>
 			
 		
 			
@@ -943,6 +1033,10 @@
 		
 			
 				<li><a href="/tags/express/" title="express">express<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
 			
 		
 		</ul>

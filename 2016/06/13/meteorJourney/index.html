@@ -4,26 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>express学习笔记 | MaiZ的博客</title>
+    <title>meteor之旅 | MaiZ的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zack Leonardo">
     
 
-    <meta name="keywords" content="Node, express">
-    <meta name="description" content="node-express 学习笔记这篇笔记记录 Zack Leonardo 在学习node-express中的笔记记录。
-ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= variable_name %&amp;gt;输出方式，字符串输出时默认经过escape转义编码。 当我们想要输出一些动态生成的HTML标签时可使用&amp;lt;%- variable_nam %&amp;g">
+    <meta name="keywords" content="node, meteor">
+    <meta name="description" content="meteor之旅这篇笔记记录 Zack Leonardo 在学习meteor中的笔记记录。首先官网上简单实用的教程(https://www.meteor.com/tutorials/react/creating-an-app)已经实现了一下，算是初步了解，在此基础上进行创造。
+首先看看如何在此基础上加一个带有视频的list，采用videojs。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="express学习笔记">
-<meta property="og:url" content="http://yoursite.com/2015/12/21/express/index.html">
+<meta property="og:title" content="meteor之旅">
+<meta property="og:url" content="http://yoursite.com/2016/06/13/meteorJourney/index.html">
 <meta property="og:site_name" content="MaiZ的博客">
-<meta property="og:description" content="node-express 学习笔记这篇笔记记录 Zack Leonardo 在学习node-express中的笔记记录。
-ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= variable_name %&amp;gt;输出方式，字符串输出时默认经过escape转义编码。 当我们想要输出一些动态生成的HTML标签时可使用&amp;lt;%- variable_nam %&amp;g">
-<meta property="og:updated_time" content="2015-12-22T08:57:03.000Z">
+<meta property="og:description" content="meteor之旅这篇笔记记录 Zack Leonardo 在学习meteor中的笔记记录。首先官网上简单实用的教程(https://www.meteor.com/tutorials/react/creating-an-app)已经实现了一下，算是初步了解，在此基础上进行创造。
+首先看看如何在此基础上加一个带有视频的list，采用videojs。">
+<meta property="og:updated_time" content="2016-06-13T02:51:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="express学习笔记">
-<meta name="twitter:description" content="node-express 学习笔记这篇笔记记录 Zack Leonardo 在学习node-express中的笔记记录。
-ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= variable_name %&amp;gt;输出方式，字符串输出时默认经过escape转义编码。 当我们想要输出一些动态生成的HTML标签时可使用&amp;lt;%- variable_nam %&amp;g">
+<meta name="twitter:title" content="meteor之旅">
+<meta name="twitter:description" content="meteor之旅这篇笔记记录 Zack Leonardo 在学习meteor中的笔记记录。首先官网上简单实用的教程(https://www.meteor.com/tutorials/react/creating-an-app)已经实现了一下，算是初步了解，在此基础上进行创造。
+首先看看如何在此基础上加一个带有视频的list，采用videojs。">
 
     
     <link rel="alternative" href="/atom.xml" title="MaiZ的博客" type="application/atom+xml">
@@ -83,14 +83,14 @@ ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= va
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/12/21/express/" title="express学习笔记" itemprop="url">express学习笔记</a>
+      <a href="/2016/06/13/meteorJourney/" title="meteor之旅" itemprop="url">meteor之旅</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zack Leonardo" target="_blank" itemprop="author">Zack Leonardo</a>
 		
   <p class="article-time">
-    <time datetime="2015-12-21T06:37:16.000Z" itemprop="datePublished"> 发表于 2015-12-21</time>
+    <time datetime="2016-06-13T02:21:29.000Z" itemprop="datePublished"> 发表于 2016-06-13</time>
     
   </p>
 </header>
@@ -99,26 +99,12 @@ ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= va
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#node-express_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">node-express 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ejs–报错_“XXX_is_not_defined”"><span class="toc-number">2.</span> <span class="toc-text">ejs–报错 “XXX is not defined”</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ejs–简单实例"><span class="toc-number">3.</span> <span class="toc-text">ejs–简单实例</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#meteor之旅"><span class="toc-number">1.</span> <span class="toc-text">meteor之旅</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="node-express_学习笔记">node-express 学习笔记</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习node-express中的笔记记录。</p>
-<h1 id="ejs–报错_“XXX_is_not_defined”">ejs–报错 “XXX is not defined”</h1><p>使用EJS模板变量值使用&lt;%= variable_name %&gt;输出方式，字符串输出时默认经过escape转义编码。 当我们想要输出一些动态生成的HTML标签时可使用&lt;%- variable_nam %&gt;输出方式，这种方式不会被escape转义编码。</p>
-<blockquote>
-<p><strong>解决:</strong></p>
-<p>&lt;%- XXX %&gt; 改为 &lt;%- locals.XXX %&gt;</p>
-</blockquote>
-<h1 id="ejs–简单实例">ejs–简单实例</h1><p>使用ejs的好处在于可以后台数据动态配置前端页面，写了一个简单例子如下：</p>
-<blockquote>
-<p><strong>例子：</strong></p>
-<p>ejs定义模版长什么样<br>example.ejs:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;<span class="xml"><span class="tag">&lt;<span class="title">%=</span> <span class="attribute">title</span> %&gt;</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">%</span> <span class="attribute">for</span>(<span class="attribute">var</span> <span class="attribute">i</span>=<span class="value">0;</span> <span class="attribute">i</span>&lt;<span class="attribute">supplies.length</span>; <span class="attribute">i</span>++) &#123; %&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">'supplies/&lt;%= supplies[i] %&gt;'</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">%=</span> <span class="attribute">supplies</span>[<span class="attribute">i</span>] %&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">%</span> &#125; %&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<p>下面使用ejs模版<br>example.html:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>ejs test<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"js/ejs_production.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"js/jquery-2.1.4.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"testEJS"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">      <span class="keyword">var</span> data = &#123;	title:	<span class="string">'Cleaning Supplies'</span>,</span><br><span class="line">                 supplies:	[<span class="string">'mop'</span>, <span class="string">'broom'</span>, <span class="string">'duster'</span>]	&#125;;</span><br><span class="line">      <span class="keyword">var</span> html = <span class="keyword">new</span> EJS(&#123;url: <span class="string">'example.ejs'</span>&#125;).render(data);</span><br><span class="line">      $(<span class="string">"#testEJS"</span>).html(html);<span class="comment">//</span></span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
-<p>通过ejs.render(data),渲染出界面。</p>
-</blockquote>
+		<h1 id="meteor之旅">meteor之旅</h1><p>这篇笔记记录 <strong>Zack Leonardo</strong> 在学习meteor中的笔记记录。<br>首先官网上简单实用的教程(<a href="https://www.meteor.com/tutorials/react/creating-an-app)已经实现了一下，算是初步了解，在此基础上进行创造。" target="_blank" rel="external">https://www.meteor.com/tutorials/react/creating-an-app)已经实现了一下，算是初步了解，在此基础上进行创造。</a></p>
+<p>首先看看如何在此基础上加一个带有视频的list，采用videojs。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -126,13 +112,13 @@ ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= va
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Note/">Note</a>
+  <a class="article-category-link" href="/categories/Meteor/">Meteor</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/express/">express</a><a href="/tags/node/">node</a>
+  <span></span> <a href="/tags/node-meteor/">node, meteor</a>
   </div>
 
 </div>
@@ -141,7 +127,7 @@ ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= va
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/12/21/express/" data-title="express学习笔记 | MaiZ的博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/06/13/meteorJourney/" data-title="meteor之旅 | MaiZ的博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -154,19 +140,11 @@ ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= va
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/12/22/intellij-idea/" title="intellij_idea笔记">
-  <strong>上一篇：</strong><br/>
-  <span>
-  intellij_idea笔记</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/11/16/css-note/"  title="css-note css学习笔记">
+<a href="/2016/03/17/Pi/"  title="Pi 学习笔记">
  <strong>下一篇：</strong><br/> 
- <span>css-note css学习笔记
+ <span>Pi 学习笔记
 </span>
 </a>
 </div>
@@ -175,7 +153,7 @@ ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= va
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/12/21/express/" data-title="express学习笔记" data-url="http://yoursite.com/2015/12/21/express/"></div>
+	<div class="ds-thread" data-thread-key="2016/06/13/meteorJourney/" data-title="meteor之旅" data-url="http://yoursite.com/2016/06/13/meteorJourney/"></div>
 </section>
 
 
@@ -185,7 +163,7 @@ ejs–报错 “XXX is not defined”使用EJS模板变量值使用&amp;lt;%= va
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#node-express_学习笔记"><span class="toc-number">1.</span> <span class="toc-text">node-express 学习笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ejs–报错_“XXX_is_not_defined”"><span class="toc-number">2.</span> <span class="toc-text">ejs–报错 “XXX is not defined”</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ejs–简单实例"><span class="toc-number">3.</span> <span class="toc-text">ejs–简单实例</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#meteor之旅"><span class="toc-number">1.</span> <span class="toc-text">meteor之旅</span></a></li></ol>
  
   </div>
 
